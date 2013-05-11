@@ -63,6 +63,11 @@
     [self setRight_click_gest:nil];
     [self setTwo_finger_right:nil];
     [self setIp_field:nil];
+    [self setW1:nil];
+    [self setW2:nil];
+    [self setW3:nil];
+    [self setW4:nil];
+    [self setW5:nil];
     [super viewDidUnload];
 }
 
@@ -130,6 +135,21 @@
 }
 - (IBAction)right_click:(id)sender {
     [self send_input:@"input=mouse&event=right_click"];
+}
+- (IBAction)on_w1:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=49"];
+}
+- (IBAction)on_w2:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=50"];
+}
+- (IBAction)on_w3:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=51"];
+}
+- (IBAction)on_w4:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=52"];
+}
+- (IBAction)on_w5:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=53"];
 }
 
 

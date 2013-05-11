@@ -55,7 +55,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.31.4.93" borderStyle="roundedRect" minimumFontSize="17" id="uGO-Qm-7NI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.31.4.102" borderStyle="roundedRect" minimumFontSize="17" id="uGO-Qm-7NI">
                                 <rect key="frame" x="61" y="71" width="155" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -72,6 +72,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_w1:" destination="2" eventType="touchUpInside" id="Iav-7i-OcV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zES-YZ-m95">
                                 <rect key="frame" x="317" y="49" width="48" height="96"/>
@@ -84,6 +87,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_w2:" destination="2" eventType="touchUpInside" id="EKw-jl-fmd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YZ7-GB-EqS">
                                 <rect key="frame" x="398" y="49" width="48" height="96"/>
@@ -96,6 +102,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_w3:" destination="2" eventType="touchUpInside" id="m2t-5J-IU6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EqC-8N-HNM">
                                 <rect key="frame" x="473" y="49" width="48" height="96"/>
@@ -108,9 +117,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_w4:" destination="2" eventType="touchUpInside" id="ogD-EN-keY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="duR-TQ-S5H">
-                                <rect key="frame" x="555" y="49" width="48" height="96"/>
+                                <rect key="frame" x="557" y="49" width="48" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="5">
@@ -120,6 +132,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_w5:" destination="2" eventType="touchUpInside" id="lrG-Ti-AxI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j9z-0d-tgO">
                                 <rect key="frame" x="633" y="49" width="48" height="96"/>
@@ -282,6 +297,11 @@
                         <outlet property="tap_click" destination="HRH-6a-81C" id="JhH-IO-ct3"/>
                         <outlet property="test_output" destination="bHK-aD-Tbq" id="Jof-GM-Fqe"/>
                         <outlet property="two_finger_right" destination="AAD-y3-OC8" id="Isu-sa-0u0"/>
+                        <outlet property="w1" destination="wdA-6m-hai" id="m4F-C4-TnZ"/>
+                        <outlet property="w2" destination="zES-YZ-m95" id="9bO-Vf-g62"/>
+                        <outlet property="w3" destination="YZ7-GB-EqS" id="34R-23-7Dp"/>
+                        <outlet property="w4" destination="EqC-8N-HNM" id="l61-qh-kyu"/>
+                        <outlet property="w5" destination="duR-TQ-S5H" id="cBv-Sm-glR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -324,6 +344,11 @@
             <relationships>
                 <relationship kind="action" name="left_click:"/>
                 <relationship kind="action" name="on_pan:"/>
+                <relationship kind="action" name="on_w1:"/>
+                <relationship kind="action" name="on_w2:"/>
+                <relationship kind="action" name="on_w3:"/>
+                <relationship kind="action" name="on_w4:"/>
+                <relationship kind="action" name="on_w5:"/>
                 <relationship kind="action" name="right_click:"/>
                 <relationship kind="outlet" name="ip_field" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="left_click_gesture" candidateClass="UITapGestureRecognizer"/>
@@ -335,6 +360,11 @@
                 <relationship kind="outlet" name="tap_click" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="test_output" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="two_finger_right" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="w1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="w2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="w3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="w4" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="w5" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

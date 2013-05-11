@@ -22,5 +22,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *ip_field;
 -(void)get_url:(NSString*)url;
 -(void)send_input:(NSString*)str;
+@property (weak, nonatomic) IBOutlet UIButton *w1;
+@property (weak, nonatomic) IBOutlet UIButton *w2;
+@property (weak, nonatomic) IBOutlet UIButton *w3;
+@property (weak, nonatomic) IBOutlet UIButton *w4;
+@property (weak, nonatomic) IBOutlet UIButton *w5;
 
 @end
