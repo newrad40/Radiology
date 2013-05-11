@@ -1,23 +1,139 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <deployment version="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mrz-Fx-2x8">
+                                <rect key="frame" x="32" y="296" width="522" height="432"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="T4y-Yn-i2q" appends="YES" id="xRz-M3-akW"/>
+                                    <outletCollection property="gestureRecognizers" destination="HRH-6a-81C" appends="YES" id="ZTD-TH-nxd"/>
+                                    <outletCollection property="gestureRecognizers" destination="AAD-y3-OC8" appends="YES" id="07L-jN-4fR"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOi-0V-Nrn">
+                                <rect key="frame" x="47" y="680" width="242" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tSj-UE-Y3X" appends="YES" id="lJ9-WO-6cJ"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5yz-W4-zZp">
+                                <rect key="frame" x="300" y="680" width="254" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AvD-qB-hfH" appends="YES" id="9qf-Ph-6JG"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bHK-aD-Tbq">
+                                <rect key="frame" x="676" y="336" width="267" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10.31.4.93" borderStyle="roundedRect" minimumFontSize="17" id="uGO-Qm-7NI">
+                                <rect key="frame" x="120" y="72" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.57811860329999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="ip_field" destination="uGO-Qm-7NI" id="1bG-5u-BSt"/>
+                        <outlet property="left_click_gesture" destination="tSj-UE-Y3X" id="WGM-yF-6C2"/>
+                        <outlet property="left_click_label" destination="DOi-0V-Nrn" id="CDs-hH-n3D"/>
+                        <outlet property="mouse_pan" destination="T4y-Yn-i2q" id="CMt-LY-GqF"/>
+                        <outlet property="mousepad" destination="Mrz-Fx-2x8" id="RaJ-Bd-bvV"/>
+                        <outlet property="right_click_gest" destination="AvD-qB-hfH" id="deN-8L-UhZ"/>
+                        <outlet property="right_click_label" destination="5yz-W4-zZp" id="il5-wv-FS4"/>
+                        <outlet property="tap_click" destination="HRH-6a-81C" id="JhH-IO-ct3"/>
+                        <outlet property="test_output" destination="bHK-aD-Tbq" id="Jof-GM-Fqe"/>
+                        <outlet property="two_finger_right" destination="AAD-y3-OC8" id="Isu-sa-0u0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AAD-y3-OC8">
+                    <connections>
+                        <action selector="right_click:" destination="2" id="NjP-T9-kSI"/>
+                        <outlet property="delegate" destination="2" id="enh-Ru-XpU"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="T4y-Yn-i2q">
+                    <connections>
+                        <action selector="on_pan:" destination="2" id="Siu-LV-bI4"/>
+                        <outlet property="delegate" destination="2" id="aVM-eI-FLr"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="HRH-6a-81C">
+                    <connections>
+                        <action selector="left_click:" destination="2" id="ykG-5O-6eI"/>
+                        <outlet property="delegate" destination="2" id="rNh-lv-lVD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tSj-UE-Y3X">
+                    <connections>
+                        <action selector="left_click:" destination="2" id="ow2-pA-hLC"/>
+                        <outlet property="delegate" destination="2" id="NaO-iD-Awx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AvD-qB-hfH">
+                    <connections>
+                        <action selector="right_click:" destination="2" id="Mnj-8m-jR1"/>
+                        <outlet property="delegate" destination="2" id="gqf-FT-ghQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="left_click:"/>
+                <relationship kind="action" name="on_pan:"/>
+                <relationship kind="action" name="right_click:"/>
+                <relationship kind="outlet" name="ip_field" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="left_click_gesture" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="left_click_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mouse_pan" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="outlet" name="mousepad" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="right_click_gest" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="right_click_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tap_click" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="test_output" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="two_finger_right" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
