@@ -36,6 +36,12 @@
     [self.right_click_label.layer setBorderWidth:4.0];
     self.counter = 0;
     [self.two_finger_right setNumberOfTouchesRequired:2];
+    [self.left_hold setMinimumPressDuration:0];
+    self.inZoomMode = false;
+    self.inPanMode = false;
+    [self.z_tap_twice setNumberOfTouchesRequired:2];
+    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
+    self.slider.transform = trans;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +74,24 @@
     [self setW3:nil];
     [self setW4:nil];
     [self setW5:nil];
+    [self setA:nil];
+    [self setB:nil];
+    [self setR:nil];
+    [self setD:nil];
+    [self setL:nil];
+    [self setLeft_hold:nil];
+    [self setDynamic_level:nil];
+    [self setDynamic_zoom:nil];
+    [self setLevel_mask:nil];
+    [self setLevel_pan:nil];
+    [self setTwo_finger_pan_mask:nil];
+    [self setZ:nil];
+    [self setOn_z_pan:nil];
+    [self setZ_tap:nil];
+    [self setZ_tap_twice:nil];
+    [self setOverlay:nil];
+    [self setSlider:nil];
+    [self setSliding_button:nil];
     [super viewDidUnload];
 }
 
@@ -151,7 +175,154 @@
 - (IBAction)on_w5:(id)sender {
     [self send_input:@"input=keyboard&keycodes=53"];
 }
+- (IBAction)on_a:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=65"];
+}
+- (IBAction)on_b:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=66"];
+}
+- (IBAction)on_r:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=73"];
+}
+- (IBAction)on_d:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=68"];
+}
+- (IBAction)on_l:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=76"];
+}
+- (IBAction)left_hold:(id)sender {
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+        [self send_input:@"input=mouse&event=left_down"];
+    }
+    if ([sender state] == UIGestureRecognizerStateEnded) {
+        [self send_input:@"input=mouse&event=left_up"];
+    }
+}
 
+- (IBAction)on_dynamic_level:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=87"];
+}
 
+- (void) mask:(id)elem {
+    [self.view bringSubviewToFront:self.level_mask];
+    [self.view bringSubviewToFront:elem];
+    self.level_mask.alpha = 0.8;
+    [self.level_mask setFrame:CGRectMake(0,0,self.view.frame.size.height, self.view.frame.size.width)];
+    self.level_mask.backgroundColor = [UIColor blackColor];
+    self.level_mask.userInteractionEnabled = true;
+    self.level_mask.hidden = false;
+}
+
+- (void) overlay:(id) elem {
+    [self.view bringSubviewToFront:elem];
+    [elem setAlpha:0.1];
+    [elem setBackgroundColor:[UIColor blackColor]];
+    [elem setFrame:CGRectMake(0,0,self.view.frame.size.height, self.view.frame.size.width)];
+    [elem setUserInteractionEnabled:true];
+    [elem setHidden:false];
+}
+
+- (void) un_overlay:(id) elem {
+    [elem setHidden:true];
+    [elem setUserInteractionEnabled:false];
+}
+
+- (void) unmask:(id)sender {
+    self.level_mask.hidden = true;
+    self.level_mask.userInteractionEnabled = false;
+}
+- (IBAction)on_two_finger_pan_overlay:(id)sender {
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+        [self send_input:@"input=keyboard&keycodes=77"];
+        [self send_input:@"input=mouse&event=left_up"];
+        [self send_input:@"input=mouse&event=left_down"];
+    } else if ([sender state] == UIGestureRecognizerStateEnded) {
+        [self send_input:@"input=keyboard&keycodes=90"];
+        [self send_input:@"input=mouse&event=left_up"];
+        if (self.inZoomMode || self.inPanMode) {
+            [self send_input:@"input=mouse&event=left_down"];
+        }
+    }
+}
+
+- (IBAction)on_level_pan:(id)sender {
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+        [self mask:self.dynamic_level];
+        [self send_input:@"input=keyboard&keycodes=87"];
+        [self send_input:@"input=mouse&event=left_down"];
+    } else if ([sender state] == UIGestureRecognizerStateEnded) {
+        [self unmask:self.dynamic_level];
+        [self send_input:@"input=mouse&event=left_up"];
+    } else {
+        [self on_pan:sender];
+    }
+}
+
+- (IBAction)on_z_pan:(id)sender {
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+        [self mask:self.z];
+        [self overlay:self.overlay];
+        [self on_z:sender];
+        [self send_input:@"input=mouse&event=left_down"];
+        if ([sender numberOfTouches] == 1) {
+            self.inZoomMode = true;
+            self.inPanMode = false;
+        } else if ([sender numberOfTouches] == 2) {
+            self.inZoomMode = false;
+            self.inPanMode = true;
+        }
+    } else if ([sender state] == UIGestureRecognizerStateEnded) {
+        [self unmask:self.z];
+        [self un_overlay:self.overlay];
+        self.inPanMode = false;
+        self.inZoomMode = false;
+        [self send_input:@"input=mouse&event=left_up"];
+    } else {
+        if (self.inPanMode && [sender numberOfTouches] == 1) {
+            [self on_z:sender];
+            [self send_input:@"input=mouse&event=left_up"];
+            [self send_input:@"input=mouse&event=left_down"];
+            self.inPanMode = false;
+            self.inZoomMode = true;
+        }
+        [self on_pan:sender];
+    }
+}
+
+- (void)on_z:(id)sender {
+    if ([sender numberOfTouches] == 1) {
+        [self send_input:@"input=keyboard&keycodes=90"];
+    } else if ([sender numberOfTouches] == 2) {
+        [self send_input:@"input=keyboard&keycodes=77"];
+    }
+}
+- (IBAction)on_z_once:(id)sender {
+    [self on_z:sender];
+}
+- (IBAction)on_z_tap_twice:(id)sender {
+    [self on_z:sender];
+}
+-(void) tick:(NSTimer *)timer {
+    NSString *str = [NSString stringWithFormat:@"input=mouse&event=scroll&scroll=%d", self.const_scroll_factor];
+    [self send_input:str];
+    //self.test_output.text = [NSString stringWithFormat:@"input=mouse&event=scroll&scroll=%d", self.const_scroll_factor];
+}
+- (IBAction)on_slide_button:(id)sender {
+    if ([sender state] == UIGestureRecognizerStateBegan) {
+        self.original_slider_center = self.sliding_button.center.y;
+        self.const_scroll_timer = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                                                   target:self
+                                                                 selector:@selector(tick:)
+                                                                 userInfo:nil
+                                                                  repeats:YES];
+    } else if ([sender state] == UIGestureRecognizerStateEnded) {
+        [self.sliding_button setCenter:CGPointMake(self.sliding_button.center.x, self.original_slider_center)];
+        [self.const_scroll_timer invalidate];
+    } else {
+        CGPoint translation = [sender translationInView:self.view];
+        [self.sliding_button setCenter:CGPointMake(self.sliding_button.center.x, self.original_slider_center + translation.y)];
+        self.const_scroll_factor = (int) (translation.y / 10);Z
+    }
+}
 
 @end

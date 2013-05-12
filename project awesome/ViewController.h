@@ -27,5 +27,27 @@
 @property (weak, nonatomic) IBOutlet UIButton *w3;
 @property (weak, nonatomic) IBOutlet UIButton *w4;
 @property (weak, nonatomic) IBOutlet UIButton *w5;
-
+@property (weak, nonatomic) IBOutlet UIButton *A;
+@property (weak, nonatomic) IBOutlet UIButton *B;
+@property (weak, nonatomic) IBOutlet UIButton *R;
+@property (weak, nonatomic) IBOutlet UIButton *D;
+@property (weak, nonatomic) IBOutlet UIButton *L;
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *left_hold;
+@property (weak, nonatomic) IBOutlet UIButton *dynamic_level;
+@property (weak, nonatomic) IBOutlet UIButton *dynamic_zoom;
+@property (weak, nonatomic) IBOutlet UILabel *level_mask;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *level_pan;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *two_finger_pan_mask;
+@property (weak, nonatomic) IBOutlet UIButton *z;
+@property bool inZoomMode;
+@property bool inPanMode;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *on_z_pan;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *z_tap;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *z_tap_twice;
+@property (weak, nonatomic) IBOutlet UILabel *overlay;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UIButton *sliding_button;
+@property float original_slider_center;
+@property NSTimer *const_scroll_timer;
+@property int const_scroll_factor;
 @end

@@ -22,19 +22,19 @@
                                 <nil key="highlightedColor"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="T4y-Yn-i2q" appends="YES" id="xRz-M3-akW"/>
-                                    <outletCollection property="gestureRecognizers" destination="HRH-6a-81C" appends="YES" id="ZTD-TH-nxd"/>
                                     <outletCollection property="gestureRecognizers" destination="AAD-y3-OC8" appends="YES" id="07L-jN-4fR"/>
+                                    <outletCollection property="gestureRecognizers" destination="HRH-6a-81C" appends="YES" id="ZTD-TH-nxd"/>
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOi-0V-Nrn">
-                                <rect key="frame" x="47" y="680" width="242" height="48"/>
+                                <rect key="frame" x="49" y="680" width="242" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="tSj-UE-Y3X" appends="YES" id="lJ9-WO-6cJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="tnV-Vc-Xha" appends="YES" id="b9N-Hu-3lY"/>
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5yz-W4-zZp">
@@ -49,7 +49,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bHK-aD-Tbq">
-                                <rect key="frame" x="676" y="336" width="267" height="21"/>
+                                <rect key="frame" x="61" y="140" width="267" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -207,6 +207,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_a:" destination="2" eventType="touchUpInside" id="tjY-NW-dXH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yTQ-TK-5Ft">
                                 <rect key="frame" x="349" y="169" width="66" height="96"/>
@@ -219,6 +222,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_b:" destination="2" eventType="touchUpInside" id="vnl-DU-YQd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wjV-V4-3F2">
                                 <rect key="frame" x="455" y="169" width="66" height="96"/>
@@ -231,9 +237,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_r:" destination="2" eventType="touchUpInside" id="wga-1Y-7Ui"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ejs-sU-5XE">
-                                <rect key="frame" x="566" y="169" width="66" height="96"/>
+                                <rect key="frame" x="676" y="169" width="66" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="D">
@@ -243,18 +252,24 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_d:" destination="2" eventType="touchUpInside" id="zzQ-sz-IHh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ga5-2v-Nay">
-                                <rect key="frame" x="676" y="169" width="66" height="96"/>
+                                <rect key="frame" x="567" y="169" width="66" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" title="L">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_l:" destination="2" eventType="touchUpInside" id="nlk-bs-caI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lvf-lB-T86">
                                 <rect key="frame" x="783" y="169" width="66" height="96"/>
@@ -280,6 +295,80 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mask" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HTe-m1-dCg">
+                                <rect key="frame" x="618" y="272" width="99" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aj9-lm-q2N">
+                                <rect key="frame" x="838" y="332" width="139" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="W">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="on_dynamic_level:" destination="2" eventType="touchUpInside" id="f1x-Vi-I4a"/>
+                                    <outletCollection property="gestureRecognizers" destination="M8E-yW-16m" appends="YES" id="PgB-N6-IDk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a9X-CP-MRs">
+                                <rect key="frame" x="619" y="332" width="181" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Z">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="w5E-ja-OTj" appends="YES" id="DVN-DF-viU"/>
+                                    <outletCollection property="gestureRecognizers" destination="S2g-Y0-B39" appends="YES" id="7Ui-YA-Nce"/>
+                                    <outletCollection property="gestureRecognizers" destination="2iL-Ks-U1L" appends="YES" id="Mtp-RW-pHe"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Overlay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NTH-E8-xzR">
+                                <rect key="frame" x="817" y="286" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wNM-5Z-b5h" appends="YES" id="uae-Bh-dKS"/>
+                                </connections>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="pi4-8k-bwU">
+                                <rect key="frame" x="797" y="610" width="199" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oRh-Xc-Vth">
+                                <rect key="frame" x="863" y="606" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Em3-Wa-GZb" appends="YES" id="nMW-AN-7QW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.57811860329999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -287,21 +376,38 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="A" destination="x6f-UA-q4g" id="UOj-hu-AC7"/>
+                        <outlet property="B" destination="yTQ-TK-5Ft" id="5mH-p2-7a4"/>
+                        <outlet property="D" destination="Ejs-sU-5XE" id="3h6-6L-DFR"/>
+                        <outlet property="L" destination="ga5-2v-Nay" id="h99-SP-v8f"/>
+                        <outlet property="R" destination="wjV-V4-3F2" id="NQ9-ud-u5i"/>
+                        <outlet property="dynamic_level" destination="aj9-lm-q2N" id="vFt-H6-TVQ"/>
                         <outlet property="ip_field" destination="uGO-Qm-7NI" id="1bG-5u-BSt"/>
                         <outlet property="left_click_gesture" destination="tSj-UE-Y3X" id="WGM-yF-6C2"/>
                         <outlet property="left_click_label" destination="DOi-0V-Nrn" id="CDs-hH-n3D"/>
+                        <outlet property="left_hold" destination="tnV-Vc-Xha" id="xyZ-vb-1bQ"/>
+                        <outlet property="level_mask" destination="HTe-m1-dCg" id="AGb-bn-D81"/>
+                        <outlet property="level_pan" destination="M8E-yW-16m" id="RDJ-kC-neS"/>
                         <outlet property="mouse_pan" destination="T4y-Yn-i2q" id="CMt-LY-GqF"/>
                         <outlet property="mousepad" destination="Mrz-Fx-2x8" id="RaJ-Bd-bvV"/>
+                        <outlet property="on_z_pan" destination="w5E-ja-OTj" id="j8M-JU-ebz"/>
+                        <outlet property="overlay" destination="NTH-E8-xzR" id="NXL-wm-xsT"/>
                         <outlet property="right_click_gest" destination="AvD-qB-hfH" id="deN-8L-UhZ"/>
                         <outlet property="right_click_label" destination="5yz-W4-zZp" id="il5-wv-FS4"/>
+                        <outlet property="slider" destination="pi4-8k-bwU" id="rJq-p6-uHl"/>
+                        <outlet property="sliding_button" destination="oRh-Xc-Vth" id="9GE-4t-gp1"/>
                         <outlet property="tap_click" destination="HRH-6a-81C" id="JhH-IO-ct3"/>
                         <outlet property="test_output" destination="bHK-aD-Tbq" id="Jof-GM-Fqe"/>
+                        <outlet property="two_finger_pan_mask" destination="wNM-5Z-b5h" id="ypz-DS-Wp5"/>
                         <outlet property="two_finger_right" destination="AAD-y3-OC8" id="Isu-sa-0u0"/>
                         <outlet property="w1" destination="wdA-6m-hai" id="m4F-C4-TnZ"/>
                         <outlet property="w2" destination="zES-YZ-m95" id="9bO-Vf-g62"/>
                         <outlet property="w3" destination="YZ7-GB-EqS" id="34R-23-7Dp"/>
                         <outlet property="w4" destination="EqC-8N-HNM" id="l61-qh-kyu"/>
                         <outlet property="w5" destination="duR-TQ-S5H" id="cBv-Sm-glR"/>
+                        <outlet property="z" destination="a9X-CP-MRs" id="bJl-Fa-zDX"/>
+                        <outlet property="z_tap" destination="S2g-Y0-B39" id="noa-SU-9z6"/>
+                        <outlet property="z_tap_twice" destination="2iL-Ks-U1L" id="Jxg-65-U8Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -317,15 +423,9 @@
                         <outlet property="delegate" destination="2" id="aVM-eI-FLr"/>
                     </connections>
                 </panGestureRecognizer>
-                <tapGestureRecognizer id="HRH-6a-81C">
-                    <connections>
-                        <action selector="left_click:" destination="2" id="ykG-5O-6eI"/>
-                        <outlet property="delegate" destination="2" id="rNh-lv-lVD"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="tSj-UE-Y3X">
                     <connections>
-                        <action selector="left_click:" destination="2" id="ow2-pA-hLC"/>
+                        <action selector="left_click:" destination="2" id="w6G-A5-vc4"/>
                         <outlet property="delegate" destination="2" id="NaO-iD-Awx"/>
                     </connections>
                 </tapGestureRecognizer>
@@ -335,6 +435,53 @@
                         <outlet property="delegate" destination="2" id="gqf-FT-ghQ"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="HRH-6a-81C">
+                    <connections>
+                        <action selector="left_click:" destination="2" id="ykG-5O-6eI"/>
+                        <outlet property="delegate" destination="2" id="rNh-lv-lVD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="tnV-Vc-Xha">
+                    <connections>
+                        <action selector="left_hold:" destination="2" id="Qan-mA-zyI"/>
+                        <outlet property="delegate" destination="2" id="6Pd-dO-GTZ"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="M8E-yW-16m">
+                    <connections>
+                        <action selector="on_level_pan:" destination="2" id="MHx-vg-1Dw"/>
+                        <outlet property="delegate" destination="2" id="ZnE-x3-CSB"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="w5E-ja-OTj">
+                    <connections>
+                        <action selector="on_z_pan:" destination="2" id="4zQ-xt-CYk"/>
+                        <outlet property="delegate" destination="2" id="47C-5F-LAN"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="S2g-Y0-B39">
+                    <connections>
+                        <action selector="on_z_once:" destination="2" id="I03-j1-Xgv"/>
+                        <outlet property="delegate" destination="2" id="rQh-yO-zAK"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2iL-Ks-U1L">
+                    <connections>
+                        <action selector="on_z_tap_twice:" destination="2" id="PRM-MI-nuZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="wNM-5Z-b5h">
+                    <connections>
+                        <action selector="on_two_finger_pan_overlay:" destination="2" id="nop-fS-dGZ"/>
+                        <outlet property="delegate" destination="2" id="sSu-BP-Fba"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Em3-Wa-GZb">
+                    <connections>
+                        <action selector="on_slide_button:" destination="2" id="fJl-r3-rdE"/>
+                        <outlet property="delegate" destination="2" id="pa1-ej-MgV"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>
@@ -342,29 +489,39 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="left_click:"/>
-                <relationship kind="action" name="on_pan:"/>
-                <relationship kind="action" name="on_w1:"/>
-                <relationship kind="action" name="on_w2:"/>
-                <relationship kind="action" name="on_w3:"/>
-                <relationship kind="action" name="on_w4:"/>
-                <relationship kind="action" name="on_w5:"/>
-                <relationship kind="action" name="right_click:"/>
+                <relationship kind="outlet" name="A" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="B" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="D" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="L" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="R" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dynamic_level" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dynamic_zoom" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="ip_field" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="left_click_gesture" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="left_click_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="left_hold" candidateClass="UILongPressGestureRecognizer"/>
+                <relationship kind="outlet" name="level_mask" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="level_pan" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="outlet" name="mouse_pan" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="outlet" name="mousepad" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="on_z_pan" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="outlet" name="overlay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="right_click_gest" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="right_click_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliding_button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tap_click" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="test_output" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="two_finger_pan_mask" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="outlet" name="two_finger_right" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="w1" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="w2" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="w3" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="w4" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="w5" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="z" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="z_tap" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="z_tap_twice" candidateClass="UITapGestureRecognizer"/>
             </relationships>
         </class>
     </classes>
