@@ -42,6 +42,7 @@
     [self.z_tap_twice setNumberOfTouchesRequired:2];
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
     self.slider.transform = trans;
+    self.scrollerPrevYOffset = 0.0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -321,8 +322,64 @@
     } else {
         CGPoint translation = [sender translationInView:self.view];
         [self.sliding_button setCenter:CGPointMake(self.sliding_button.center.x, self.original_slider_center + translation.y)];
-        self.const_scroll_factor = (int) (translation.y / 10);Z
+        self.const_scroll_factor = (int) (translation.y / 10);
     }
 }
 
+- (void)sendScrollSignal:(int)movement {
+    char buf[1024];
+    sprintf(buf, "http://10.31.37.33/input=mouse&event=scroll&scroll=%d", movement);
+    NSString * serverAddress = @(buf);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    [request setHTTPMethod: @"GET"];
+    NSError *requestError;
+    NSURLResponse *urlResponse = nil;
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+}
+
+- (double)getScrollerCurYOffset:(id)sender {
+    double blah = 1.0 * [(UIPanGestureRecognizer*)sender translationInView:self.view].y;
+    //printf("blah=%f\n", blah);
+    return blah;
+}
+
+- (int)computeScrollerNecessaryMovement:(double)curYOffset :(double)movementsPerPixel {
+    double idealNumMovements = (curYOffset - self.scrollerPrevYOffset) * movementsPerPixel;
+    int actualNumMovements = (int)round(idealNumMovements);
+    
+    self.scrollerPrevYOffset += actualNumMovements / movementsPerPixel;
+    //printf("actualNumMovements=%d\n",actualNumMovements);
+    return actualNumMovements;
+}
+
+- (void)checkForNewScrollGesture:(id)sender {
+    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
+        self.scrollerPrevYOffset = 0.0;
+        //printf("woof!\n");
+    }
+}
+
+- (void)scrollerFun:(id)sender :(double)movementsPerPixel {
+    [self checkForNewScrollGesture:sender];
+    double curYOffset = [self getScrollerCurYOffset:sender];
+    int movement = [self computeScrollerNecessaryMovement:curYOffset :movementsPerPixel];
+    if (movement != 0) {
+        [self sendScrollSignal:movement];
+    }
+}
+
+
+- (IBAction)handleScroll:(id)sender {
+    if ([(UIPanGestureRecognizer*)sender numberOfTouches] == 1) {
+        //printf("1\n");
+        [self scrollerFun:sender :0.08];
+    } else if ([(UIPanGestureRecognizer*)sender numberOfTouches] == 2) {
+        //printf("2\n");
+        [self scrollerFun:sender :0.32];
+    } else if ([(UIPanGestureRecognizer*)sender numberOfTouches] >= 3) {
+        //printf("3\n");
+        [self scrollerFun:sender :1.28];
+    }
+}
 @end

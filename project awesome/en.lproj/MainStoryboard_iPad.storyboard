@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment version="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -296,7 +296,7 @@
                                 </state>
                             </button>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mask" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HTe-m1-dCg">
-                                <rect key="frame" x="618" y="272" width="99" height="50"/>
+                                <rect key="frame" x="618" y="257" width="99" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -304,7 +304,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aj9-lm-q2N">
-                                <rect key="frame" x="838" y="332" width="139" height="63"/>
+                                <rect key="frame" x="838" y="304" width="139" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -321,7 +321,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a9X-CP-MRs">
-                                <rect key="frame" x="619" y="332" width="181" height="127"/>
+                                <rect key="frame" x="567" y="304" width="238" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -339,7 +339,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Overlay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NTH-E8-xzR">
-                                <rect key="frame" x="817" y="286" width="88" height="21"/>
+                                <rect key="frame" x="817" y="272" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -350,11 +350,11 @@
                                 </connections>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="pi4-8k-bwU">
-                                <rect key="frame" x="797" y="610" width="199" height="23"/>
+                                <rect key="frame" x="816" y="572" width="199" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oRh-Xc-Vth">
-                                <rect key="frame" x="863" y="606" width="67" height="31"/>
+                                <rect key="frame" x="881" y="568" width="67" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -369,6 +369,17 @@
                                     <outletCollection property="gestureRecognizers" destination="Em3-Wa-GZb" appends="YES" id="nMW-AN-7QW"/>
                                 </connections>
                             </button>
+                            <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ROC-B2-hXR">
+                                <rect key="frame" x="567" y="376" width="306" height="357"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="npS-cc-yBJ" appends="YES" id="d6c-rb-QCI"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.57811860329999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -482,6 +493,11 @@
                         <outlet property="delegate" destination="2" id="pa1-ej-MgV"/>
                     </connections>
                 </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="npS-cc-yBJ">
+                    <connections>
+                        <action selector="handleScroll:" destination="2" id="kFL-Sh-95n"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>
@@ -489,6 +505,28 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="handleScroll:"/>
+                <relationship kind="action" name="left_click:"/>
+                <relationship kind="action" name="left_hold:"/>
+                <relationship kind="action" name="on_a:"/>
+                <relationship kind="action" name="on_b:"/>
+                <relationship kind="action" name="on_d:"/>
+                <relationship kind="action" name="on_dynamic_level:"/>
+                <relationship kind="action" name="on_l:"/>
+                <relationship kind="action" name="on_level_pan:"/>
+                <relationship kind="action" name="on_pan:"/>
+                <relationship kind="action" name="on_r:"/>
+                <relationship kind="action" name="on_slide_button:"/>
+                <relationship kind="action" name="on_two_finger_pan_overlay:"/>
+                <relationship kind="action" name="on_w1:"/>
+                <relationship kind="action" name="on_w2:"/>
+                <relationship kind="action" name="on_w3:"/>
+                <relationship kind="action" name="on_w4:"/>
+                <relationship kind="action" name="on_w5:"/>
+                <relationship kind="action" name="on_z_once:"/>
+                <relationship kind="action" name="on_z_pan:"/>
+                <relationship kind="action" name="on_z_tap_twice:"/>
+                <relationship kind="action" name="right_click:"/>
                 <relationship kind="outlet" name="A" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="B" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="D" candidateClass="UIButton"/>

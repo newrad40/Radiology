@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+- (IBAction)handleScroll:(id)sender;
+@property double scrollerPrevYOffset;
 @property (weak, nonatomic) IBOutlet UILabel *mousepad;
 @property (weak, nonatomic) IBOutlet UILabel *left_click_label;
 @property (weak, nonatomic) IBOutlet UILabel *right_click_label;

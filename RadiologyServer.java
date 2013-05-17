@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 
 public class RadiologyServer {
     private static final int PORT = 80;
-    private static final String HOST = "10.31.4.102";
+    private static final String HOST = "10.31.37.33";
 	public static Robot robot;
 	
     public static void main(String[] args) throws AWTException,IOException {
