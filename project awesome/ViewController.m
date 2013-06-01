@@ -10,11 +10,104 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface ViewController ()
+@interface ViewController (){
+    PopOverScreen *popScreen;
+    UIPopoverController *popoverController;
+    bool createAccount;
+    bool login;
+    
+    NSString *currBackgroundPicture;
+    NSString *currButtonPicture;
+    NSString *currProfileName;
+}
 
 @end
 
+
 @implementation ViewController
+
+
+
+@synthesize btnCustomize;
+
+-(void)ToDefault:(NSNotification *)Data {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default.png"]];
+    
+    
+    for (UIView *view in self.view.subviews)
+    {
+        if([view isKindOfClass:[UIButton class]])
+        {
+            UIButton *btn = (UIButton*)view;
+            
+          //  [btn setBackgroundImage:customBackground
+            //               forState:UIControlStateNormal];
+            [btn setBackgroundImage:[UIImage imageNamed:@"white_square.png"] forState:UIControlStateNormal];
+        }
+    }
+
+}
+
+- (void)changeBackgroundView:(NSNotification *)Data {
+    
+    NSString *filename = [Data userInfo];
+    currBackgroundPicture = filename;
+    NSLog(currBackgroundPicture);
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:(NSString *)filename]];
+    
+}
+
+-(void)changeButtonShape:(NSNotification *)Data{
+ 
+    NSString *filename = [Data userInfo];
+    currButtonPicture = filename;
+    NSLog(currButtonPicture);
+    
+    UIImage *customBackground = [UIImage imageNamed:filename];
+    
+  //  UIButton *button = [UIButton appearance];
+  //  [button set/BackgroundImage:[UIImage imageNamed:@"button.png"]
+                  //      forState:UIControlStateNormal];
+    
+    // [[UIButton appearance] setBackButtonBackgroundImage:customBackground forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    for (UIView *view in self.view.subviews)
+    {
+        if([view isKindOfClass:[UIButton class]])
+        {
+            UIButton *btn = (UIButton*)view;
+            
+            [btn setBackgroundImage:customBackground
+                           forState:UIControlStateNormal];
+        }
+    }
+    
+ 
+}
+
+
+
+- (IBAction)CustomizeScreen:(id)sender {
+    
+    if ([popoverController isPopoverVisible]) {
+        [popoverController dismissPopoverAnimated:YES];
+    } else {
+        //the rectangle here is the frame of the object that presents the popover,
+        //in this case, the UIButton…
+        
+        
+        CGRect popRect = CGRectMake(10,
+                                    10,
+                                    self.btnCustomize.width,
+                                    self.btnCustomize.width);
+        [popoverController presentPopoverFromRect:popRect
+                                           inView:self.view
+                         permittedArrowDirections:UIPopoverArrowDirectionAny
+                                         animated:YES];
+    }
+}
+
+
 
 
 - (void)get_url:(NSString*)url {
@@ -30,10 +123,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    createAccount = false;
+    login = false;
+    
+    currBackgroundPicture = @"Default.png";
+    currButtonPicture = @"white_square.png";
+    currProfileName = @"None";
+    
+    popScreen = [[PopOverScreen alloc] initWithNibName:@"PopOverScreen" bundle:nil];
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:popScreen];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeBackgroundView:) name:@"ChangeBackground" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeButtonShape:) name:@"ChangeButton" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ToDefault:) name:@"MakeDefault" object:nil];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SaveSettings:) name:@"SaveSettings" object:nil];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self.mousepad.layer setBorderWidth:4.0];
     [self.left_click_label.layer setBorderWidth:4.0];
     [self.right_click_label.layer setBorderWidth:4.0];
+    [self.mousepad.layer setBorderColor: [UIColor yellowColor].CGColor];
+    [self.left_click_label.layer setBorderColor: [UIColor yellowColor].CGColor];
+    [self.right_click_label.layer setBorderColor: [UIColor yellowColor].CGColor];
     self.counter = 0;
     [self.two_finger_right setNumberOfTouchesRequired:2];
     [self.left_hold setMinimumPressDuration:0];
@@ -43,6 +158,14 @@
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
     self.slider.transform = trans;
     self.scrollerPrevYOffset = 0.0;
+    [self.swipe_on_mousepad_gesture setNumberOfTouchesRequired:2];
+    [self.swipe_on_mousepad_gesture setDirection: UISwipeGestureRecognizerDirectionRight];
+    [self.left_swipe_mousepad setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.left_swipe_mousepad setNumberOfTouchesRequired:2];
+    [self.mouse_pan setMaximumNumberOfTouches:3];
+    self.time_last_pad_click = 0;
+    self.needs_to_mouseup_on_endpan = false;
+    [self.middle_click setNumberOfTouchesRequired:3];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,10 +216,51 @@
     [self setOverlay:nil];
     [self setSlider:nil];
     [self setSliding_button:nil];
+    [self setPopout_view:nil];
+    [self setScroll_view:nil];
+    [self setCt_levels_view:nil];
+    [self setCine_slider:nil];
+    [self setSwipe_on_mousepad_gesture:nil];
+    [self setXray_series_view:nil];
+    [self setSliding_scroll_view:nil];
+    [self setCt_func_btns_view:nil];
+    [self setUltrasound_func_btns_view:nil];
+    [self setXray_func_btns_view:nil];
+    [self setCine_view:nil];
+    [self setMenu_release:nil];
+    [self setLeft_swipe_mousepad:nil];
+    [self setBtnCustomize:nil];
+    [self setBtnLogIn:nil];
+    [self setBtnCreateAccount:nil];
+    [self LogIn:nil];
+    [self AddAccount:nil];
+    
+    [self setMiddle_click:nil];
     [super viewDidUnload];
 }
 
 - (IBAction)on_pan:(id)sender {
+    
+    if([sender numberOfTouches] == 2 && !self.inPanMode && !self.inZoomMode) {
+        [self scrollerFun:sender :0.32];
+        return;
+    }
+    
+    if([sender numberOfTouches] == 3) {
+        [self scrollerFun:sender :1.28];
+        return;
+    }
+
+    
+    if([sender state] == UIGestureRecognizerStateBegan)
+    {
+        NSDate *date = [NSDate date];
+        if([date timeIntervalSince1970] - self.time_last_pad_click < 0.36) {
+            self.needs_to_mouseup_on_endpan = true;
+            [self send_input:@"input=mouse&event=left_down"];
+        }
+    }
+    
     self.counter++;
     CGPoint translation = [sender translationInView:self.view];
     CGPoint velocity = [sender velocityInView:self.view];
@@ -152,11 +316,21 @@
     {
         // only in here for the hell of it
         self.counter = 0;
+        if (self.needs_to_mouseup_on_endpan) {
+            [self send_input:@"input=mouse&event=left_up"];
+            self.needs_to_mouseup_on_endpan = false;
+        }
     }
+}
+
+- (IBAction)on_middle_click:(id)sender {
+    [self send_input:@"input=mouse&event=middle_click"];
 }
 
 - (IBAction)left_click:(id)sender {
     [self send_input:@"input=mouse&event=click"];
+    NSDate *date = [NSDate date];
+    self.time_last_pad_click = [date timeIntervalSince1970];
 }
 - (IBAction)right_click:(id)sender {
     [self send_input:@"input=mouse&event=right_click"];
@@ -176,7 +350,7 @@
 - (IBAction)on_w5:(id)sender {
     [self send_input:@"input=keyboard&keycodes=53"];
 }
-- (IBAction)on_a:(id)sender {
+- (IBAction)on_annotate:(id)sender {
     [self send_input:@"input=keyboard&keycodes=65"];
 }
 - (IBAction)on_b:(id)sender {
@@ -185,12 +359,50 @@
 - (IBAction)on_r:(id)sender {
     [self send_input:@"input=keyboard&keycodes=73"];
 }
-- (IBAction)on_d:(id)sender {
+- (IBAction)on_dist:(id)sender {
     [self send_input:@"input=keyboard&keycodes=68"];
 }
-- (IBAction)on_l:(id)sender {
+- (IBAction)on_cin:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=67"];
+}
+- (IBAction)on_select:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=83"];
+}
+- (IBAction)on_deselect:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=80"];
+}
+- (IBAction)on_roi:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=82"];
+}
+- (IBAction)on_reset:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=79"];
+}
+- (IBAction)on_smat:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=66"];
+}
+- (IBAction)on_screen_cine:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=86"];
+}
+- (IBAction)on_angle:(id)sender {
     [self send_input:@"input=keyboard&keycodes=76"];
 }
+- (IBAction)on_6:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=54"];
+}
+- (IBAction)on_7:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=55"];
+}
+- (IBAction)on_8:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=56"];
+}
+- (IBAction)on_9:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=57"];
+}
+- (IBAction)on_10:(id)sender {
+    [self send_input:@"input=keyboard&keycodes=48"];
+}
+
+
 - (IBAction)left_hold:(id)sender {
     if ([sender state] == UIGestureRecognizerStateBegan) {
         [self send_input:@"input=mouse&event=left_down"];
@@ -234,14 +446,12 @@
 }
 - (IBAction)on_two_finger_pan_overlay:(id)sender {
     if ([sender state] == UIGestureRecognizerStateBegan) {
-        [self send_input:@"input=keyboard&keycodes=77"];
-        [self send_input:@"input=mouse&event=left_up"];
-        [self send_input:@"input=mouse&event=left_down"];
+        [self send_input:@"input=mouse&event=up,key,down&keycode=77"];
     } else if ([sender state] == UIGestureRecognizerStateEnded) {
-        [self send_input:@"input=keyboard&keycodes=90"];
-        [self send_input:@"input=mouse&event=left_up"];
         if (self.inZoomMode || self.inPanMode) {
-            [self send_input:@"input=mouse&event=left_down"];
+            [self send_input:@"input=mouse&event=up,key,down&keycode=90"];
+        } else {
+            [self send_input:@"input=mouse&event=up,key&keycode=90"];
         }
     }
 }
@@ -277,6 +487,7 @@
         [self un_overlay:self.overlay];
         self.inPanMode = false;
         self.inZoomMode = false;
+        usleep(15000);
         [self send_input:@"input=mouse&event=left_up"];
     } else {
         if (self.inPanMode && [sender numberOfTouches] == 1) {
@@ -288,6 +499,8 @@
         }
         [self on_pan:sender];
     }
+}
+- (IBAction)on_next_series:(id)sender {
 }
 
 - (void)on_z:(id)sender {
@@ -306,7 +519,6 @@
 -(void) tick:(NSTimer *)timer {
     NSString *str = [NSString stringWithFormat:@"input=mouse&event=scroll&scroll=%d", self.const_scroll_factor];
     [self send_input:str];
-    //self.test_output.text = [NSString stringWithFormat:@"input=mouse&event=scroll&scroll=%d", self.const_scroll_factor];
 }
 - (IBAction)on_slide_button:(id)sender {
     if ([sender state] == UIGestureRecognizerStateBegan) {
@@ -327,15 +539,7 @@
 }
 
 - (void)sendScrollSignal:(int)movement {
-    char buf[1024];
-    sprintf(buf, "http://10.31.37.33/input=mouse&event=scroll&scroll=%d", movement);
-    NSString * serverAddress = @(buf);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:serverAddress]
-                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
-    [request setHTTPMethod: @"GET"];
-    NSError *requestError;
-    NSURLResponse *urlResponse = nil;
-    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    [self send_input:[NSString stringWithFormat:@"input=mouse&event=scroll&scroll=%d", movement]];
 }
 
 - (double)getScrollerCurYOffset:(id)sender {
@@ -382,4 +586,288 @@
         [self scrollerFun:sender :1.28];
     }
 }
+
+//Use for when someone is trying to log into their account
+- (IBAction)LogIn:(id)sender {
+    login = true;
+    createAccount = false;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In" message:@"Enter Your Profile Name" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *textField = [alert textFieldAtIndex:0];
+    [alert setTag:0];
+    [alert show];
+}
+
+-(void)UpdateScreen:(NSString *)name{
+    //Update background color
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:currBackgroundPicture]];
+    
+    UIImage *customBackground = [UIImage imageNamed:currButtonPicture];
+    
+    //  UIButton *button = [UIButton appearance];
+    //  [button set/BackgroundImage:[UIImage imageNamed:@"button.png"]
+    //      forState:UIControlStateNormal];
+    
+    // [[UIButton appearance] setBackButtonBackgroundImage:customBackground forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    for (UIView *view in self.view.subviews)
+    {
+        if([view isKindOfClass:[UIButton class]])
+        {
+            UIButton *btn = (UIButton*)view;
+            
+            [btn setBackgroundImage:customBackground
+                           forState:UIControlStateNormal];
+        }
+    }
+    
+}
+
+//
+-(void)LoginToProfile:(NSString *)name{
+  
+    NSString *filePath = [[@"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles/" stringByAppendingString:name] stringByAppendingString:@".txt"];
+    NSLog(filePath);
+    NSString *filesContent = [[NSString alloc] initWithContentsOfFile:filePath];
+    
+    NSLog(@"CONTENT!");
+    NSLog(filesContent);
+    
+    if([filesContent length] != 0){
+        NSLog(@"Welcome!");
+        currProfileName = name;
+        
+        NSString *contents = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:nil];
+        NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
+        int i = 0;
+        for (NSString* line in lines) {
+            if (line.length) {
+                NSLog(@"line: %@", line);
+                switch(i){
+                    case 0:
+                        currProfileName = line;
+                        break;
+                    case 1:
+                        currBackgroundPicture = line;
+                        break;
+                    case 2:
+                        currButtonPicture = line;
+                        break;
+                }
+                i++;
+            }
+        }
+        
+        [self UpdateScreen:name];
+        
+ 
+        
+        
+    }else{
+        NSLog(@"That profile doesn't exist");
+    }
+    
+}
+
+-(void)SaveSettings:(NSNotification *)Data {
+    
+    if(![currProfileName isEqual: @"None"]){
+        
+        NSLog(@"SAVING!");
+        
+        NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *directory = @"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles";//[paths objectAtIndex:0];
+        NSString *fileName = [currProfileName stringByAppendingString:@".txt"];
+        NSString *filePath = [directory stringByAppendingPathComponent:fileName];
+        
+        
+        NSString *writeName = [currProfileName stringByAppendingString:@"\n"];
+        NSString *writeBackground = [currBackgroundPicture stringByAppendingString:@"\n"];
+        NSString *writeButton = [currButtonPicture stringByAppendingString:@"\n"];
+
+    
+        [writeName writeToFile:filePath atomically:YES encoding:NSASCIIStringEncoding error:nil];
+
+        NSFileHandle *myHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
+        [myHandle seekToEndOfFile];
+        [myHandle writeData:  [writeBackground dataUsingEncoding:NSUTF8StringEncoding]];
+        [myHandle seekToEndOfFile];
+        [myHandle writeData:  [writeButton dataUsingEncoding:NSUTF8StringEncoding]];
+
+        [myHandle closeFile];
+        
+        
+    
+    }
+}
+
+
+-(void)AddAccount:(NSString *)name{
+    
+    //Check to see if name is already taken
+    NSString *filePath = [[@"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles/" stringByAppendingString:name] stringByAppendingString:@".txt"];
+    NSLog(filePath);
+    NSString *filesContent = [[NSString alloc] initWithContentsOfFile:filePath];
+    
+    if([filesContent length] != 0)
+        return; //File taken already
+    
+    
+    NSString *accountFile = [name stringByAppendingString:@".txt"];
+    
+  //  NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = @"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles";//[documentPaths objectAtIndex:0];
+    NSString *documentTXTPath = [documentsDirectory stringByAppendingPathComponent:accountFile];
+        
+    
+    NSString *writeName = [name stringByAppendingString:@"\n"];
+
+    
+    [writeName writeToFile:documentTXTPath atomically:YES];
+    
+    currProfileName = name; //Automatically sign in when you create an account
+    currBackgroundPicture = @"Default.png";
+    currButtonPicture = @"white_square.png";
+    
+    NSString *writeBackground = [currBackgroundPicture stringByAppendingString:@"\n"];
+    NSString *writeButton = [currButtonPicture stringByAppendingString:@"\n"];
+    
+        
+    NSFileHandle *myHandle = [NSFileHandle fileHandleForUpdatingAtPath:documentTXTPath];
+    [myHandle seekToEndOfFile];
+    [myHandle writeData:  [writeBackground dataUsingEncoding:NSUTF8StringEncoding]];
+    [myHandle seekToEndOfFile];
+    [myHandle writeData:  [writeButton dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [myHandle closeFile];
+    
+    [self LoginToProfile:name];
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSString *name = [alertView textFieldAtIndex:0].text;
+        // name contains the entered value
+        NSLog(name);
+        if(login){
+            [self LoginToProfile:name];
+        } else if(createAccount){
+            [self AddAccount:name];
+        }
+
+    }
+}
+
+//Use when someone is trying to create a new account.
+- (IBAction)CreateAccount:(id)sender {
+    createAccount = true;
+    login = false;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create Account" message:@"Enter Your Desired Profile Name Please" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *textField = [alert textFieldAtIndex:0];
+    [alert setTag:0];
+    [alert show];
+}
+
+- (IBAction)set_ip_button:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"IP" message:@"Enter the IP address of the workstation" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    UITextField *textField = [alert textFieldAtIndex:0];
+    textField.text = self.ip_field.text;
+    [alert setTag:0];
+    [alert show];
+    [self popout_show:self.menu_release];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // ip field
+    if (alertView.tag == 0) {
+        if (buttonIndex == 1) {
+            self.ip_field.text = [[alertView textFieldAtIndex:0] text];
+        }
+    }
+}
+
+- (IBAction)popout_show:(id)sender {
+    if ([[sender titleLabel].text isEqualToString:@">"]) {
+        [sender setTitle:@"<" forState:UIControlStateNormal];
+        [self.view bringSubviewToFront:self.popout_view];
+        self.popout_view.hidden = false;
+    } else {
+        [sender setTitle:@">" forState:UIControlStateNormal];
+        self.popout_view.hidden = true;
+    }
+}
+
+- (IBAction)start_cine_play:(id)sender {
+    if ([[sender titleLabel].text isEqualToString:@"|>"]) {
+        [self cine_slider_change:sender];
+        self.const_scroll_timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+        [sender setTitle:@"||" forState:UIControlStateNormal];
+    } else {
+        [self end_cine_play:sender];
+        [sender setTitle:@"|>" forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)end_cine_play:(id)sender {
+    [self.const_scroll_timer invalidate];
+}
+- (IBAction)cine_slider_change:(id)sender {
+    self.const_scroll_factor = (int) (self.cine_slider.value * 20);
+}
+- (IBAction)swipe_on_mousepad2:(id)sender {
+    // right mousepad swipe, 2 fingers
+    self.test_output.text = @"Right";
+}
+- (IBAction)swipe_on_mousepad1:(id)sender {
+    // left mousepad swipe, 2 fingers
+    self.test_output.text = @"Left";
+}
+
+
+- (IBAction)show_ct_screen:(id)sender {
+    self.ct_func_btns_view.hidden = false;
+    
+    self.xray_func_btns_view.hidden = true;
+    self.xray_series_view.hidden = true;
+    self.ultrasound_func_btns_view.hidden = true;
+    
+    self.scroll_view.hidden = false;
+    self.sliding_scroll_view.hidden = false;
+    self.cine_view.hidden = true;
+    [self popout_show:self.menu_release];
+}
+- (IBAction)show_ultrasound:(id)sender {
+    self.ct_func_btns_view.hidden = true;
+    
+    self.xray_func_btns_view.hidden = true;
+    self.xray_series_view.hidden = true;
+    self.ultrasound_func_btns_view.hidden = false;
+    
+    self.scroll_view.hidden = true;
+    self.sliding_scroll_view.hidden = false;
+    self.cine_view.hidden = false;
+    [self popout_show:self.menu_release];
+}
+- (IBAction)show_xray_screen:(id)sender {
+    self.ct_func_btns_view.hidden = true;
+    
+    self.xray_func_btns_view.hidden = FALSE;
+    self.xray_series_view.hidden = FALSE;
+    self.ultrasound_func_btns_view.hidden = TRUE;
+    
+    self.scroll_view.hidden = true;
+    self.sliding_scroll_view.hidden = true;
+    self.cine_view.hidden = true;
+    [self popout_show:self.menu_release];
+}
+
+
+
+
+
 @end

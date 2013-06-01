@@ -7,8 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopOverScreen.h"
 
 @interface ViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIButton *btnLogIn;
+- (IBAction)LogIn:(id)sender;
+
+-(IBAction)AddAccount:(NSString *)name;
+-(IBAction)LoginToProfile:(NSString *)name;
+
+
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnCustomize;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnCreateAccount;
+- (IBAction)CreateAccount:(id)sender;
+
+- (IBAction)CustomizeScreen:(id)sender;
+
+
+
+
 - (IBAction)handleScroll:(id)sender;
 @property double scrollerPrevYOffset;
 @property (weak, nonatomic) IBOutlet UILabel *mousepad;
@@ -52,4 +72,24 @@
 @property float original_slider_center;
 @property NSTimer *const_scroll_timer;
 @property int const_scroll_factor;
+@property (weak, nonatomic) IBOutlet UIView *popout_view;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *left_swipe_mousepad;
+
+@property (weak, nonatomic) IBOutlet UIView *scroll_view;
+@property (weak, nonatomic) IBOutlet UIView *ct_levels_view;
+@property (weak, nonatomic) IBOutlet UISlider *cine_slider;
+@property (weak, nonatomic) IBOutlet UIView *cine_view;
+
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipe_on_mousepad_gesture;
+@property (weak, nonatomic) IBOutlet UIView *xray_series_view;
+@property (weak, nonatomic) IBOutlet UIView *sliding_scroll_view;
+@property (weak, nonatomic) IBOutlet UIView *ct_func_btns_view;
+@property (weak, nonatomic) IBOutlet UIView *ultrasound_func_btns_view;
+@property (weak, nonatomic) IBOutlet UIView *xray_func_btns_view;
+
+@property (weak, nonatomic) IBOutlet UIButton *menu_release;
+@property NSTimeInterval time_last_pad_click;
+@property bool needs_to_mouseup_on_endpan;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *middle_click;
+
 @end

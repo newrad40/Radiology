@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33B949B217572D98001A52B9 /* PopOverScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B949B017572D98001A52B9 /* PopOverScreen.m */; };
+		33B949B317572D98001A52B9 /* PopOverScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B949B117572D98001A52B9 /* PopOverScreen.xib */; };
+		33B949B71757323B001A52B9 /* BackGroundOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B949B51757323A001A52B9 /* BackGroundOptions.m */; };
+		33B949B81757323B001A52B9 /* BackGroundOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B949B61757323A001A52B9 /* BackGroundOptions.xib */; };
+		33B949C7175756CD001A52B9 /* ButtonOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B949C5175756CD001A52B9 /* ButtonOptions.m */; };
+		33B949C8175756CD001A52B9 /* ButtonOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B949C6175756CD001A52B9 /* ButtonOptions.xib */; };
+		33B94AA61759FC11001A52B9 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B94A9C1759FC11001A52B9 /* button.png */; };
+		33B94AA71759FC11001A52B9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B94A9D1759FC11001A52B9 /* Default.png */; };
+		33B94AA81759FC11001A52B9 /* grassflower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33B94A9E1759FC11001A52B9 /* grassflower.jpg */; };
+		33B94AA91759FC11001A52B9 /* milkyway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33B94A9F1759FC11001A52B9 /* milkyway.jpg */; };
+		33B94AAA1759FC11001A52B9 /* rainbow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33B94AA01759FC11001A52B9 /* rainbow.jpg */; };
+		33B94AAB1759FC11001A52B9 /* redbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B94AA11759FC11001A52B9 /* redbutton.png */; };
+		33B94AAC1759FC11001A52B9 /* silver.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B94AA21759FC11001A52B9 /* silver.png */; };
+		33B94AAD1759FC11001A52B9 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B94AA31759FC11001A52B9 /* star.png */; };
+		33B94AAE1759FC11001A52B9 /* water.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33B94AA41759FC11001A52B9 /* water.jpg */; };
+		33B94AAF1759FC11001A52B9 /* white_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B94AA51759FC11001A52B9 /* white_square.png */; };
 		783502B1173CC99200C2FB51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783502B0173CC99200C2FB51 /* UIKit.framework */; };
 		783502B3173CC99200C2FB51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783502B2173CC99200C2FB51 /* Foundation.framework */; };
 		783502B5173CC99200C2FB51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783502B4173CC99200C2FB51 /* CoreGraphics.framework */; };
@@ -37,6 +53,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33B949AF17572D98001A52B9 /* PopOverScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverScreen.h; sourceTree = "<group>"; };
+		33B949B017572D98001A52B9 /* PopOverScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopOverScreen.m; sourceTree = "<group>"; };
+		33B949B117572D98001A52B9 /* PopOverScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopOverScreen.xib; sourceTree = "<group>"; };
+		33B949B41757323A001A52B9 /* BackGroundOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackGroundOptions.h; sourceTree = "<group>"; };
+		33B949B51757323A001A52B9 /* BackGroundOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackGroundOptions.m; sourceTree = "<group>"; };
+		33B949B61757323A001A52B9 /* BackGroundOptions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackGroundOptions.xib; sourceTree = "<group>"; };
+		33B949C4175756CD001A52B9 /* ButtonOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptions.h; sourceTree = "<group>"; };
+		33B949C5175756CD001A52B9 /* ButtonOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptions.m; sourceTree = "<group>"; };
+		33B949C6175756CD001A52B9 /* ButtonOptions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonOptions.xib; sourceTree = "<group>"; };
+		33B94A9C1759FC11001A52B9 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		33B94A9D1759FC11001A52B9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		33B94A9E1759FC11001A52B9 /* grassflower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grassflower.jpg; sourceTree = "<group>"; };
+		33B94A9F1759FC11001A52B9 /* milkyway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = milkyway.jpg; sourceTree = "<group>"; };
+		33B94AA01759FC11001A52B9 /* rainbow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainbow.jpg; sourceTree = "<group>"; };
+		33B94AA11759FC11001A52B9 /* redbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redbutton.png; sourceTree = "<group>"; };
+		33B94AA21759FC11001A52B9 /* silver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = silver.png; sourceTree = "<group>"; };
+		33B94AA31759FC11001A52B9 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		33B94AA41759FC11001A52B9 /* water.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = water.jpg; sourceTree = "<group>"; };
+		33B94AA51759FC11001A52B9 /* white_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_square.png; sourceTree = "<group>"; };
 		783502AD173CC99200C2FB51 /* project awesome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project awesome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		783502B0173CC99200C2FB51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		783502B2173CC99200C2FB51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,9 +121,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33B94A9B1759FC11001A52B9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				33B94A9C1759FC11001A52B9 /* button.png */,
+				33B94A9D1759FC11001A52B9 /* Default.png */,
+				33B94A9E1759FC11001A52B9 /* grassflower.jpg */,
+				33B94A9F1759FC11001A52B9 /* milkyway.jpg */,
+				33B94AA01759FC11001A52B9 /* rainbow.jpg */,
+				33B94AA11759FC11001A52B9 /* redbutton.png */,
+				33B94AA21759FC11001A52B9 /* silver.png */,
+				33B94AA31759FC11001A52B9 /* star.png */,
+				33B94AA41759FC11001A52B9 /* water.jpg */,
+				33B94AA51759FC11001A52B9 /* white_square.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		783502A4173CC99200C2FB51 = {
 			isa = PBXGroup;
 			children = (
+				33B94A9B1759FC11001A52B9 /* Images */,
 				783502B6173CC99200C2FB51 /* project awesome */,
 				783502DD173CC99300C2FB51 /* project awesomeTests */,
 				783502AF173CC99200C2FB51 /* Frameworks */,
@@ -119,12 +172,21 @@
 		783502B6173CC99200C2FB51 /* project awesome */ = {
 			isa = PBXGroup;
 			children = (
+				33B949AF17572D98001A52B9 /* PopOverScreen.h */,
+				33B949B017572D98001A52B9 /* PopOverScreen.m */,
+				33B949B117572D98001A52B9 /* PopOverScreen.xib */,
 				783502BF173CC99200C2FB51 /* AppDelegate.h */,
 				783502C0173CC99200C2FB51 /* AppDelegate.m */,
 				783502C8173CC99300C2FB51 /* MainStoryboard_iPhone.storyboard */,
 				783502CB173CC99300C2FB51 /* MainStoryboard_iPad.storyboard */,
 				783502CE173CC99300C2FB51 /* ViewController.h */,
 				783502CF173CC99300C2FB51 /* ViewController.m */,
+				33B949B41757323A001A52B9 /* BackGroundOptions.h */,
+				33B949B51757323A001A52B9 /* BackGroundOptions.m */,
+				33B949B61757323A001A52B9 /* BackGroundOptions.xib */,
+				33B949C4175756CD001A52B9 /* ButtonOptions.h */,
+				33B949C5175756CD001A52B9 /* ButtonOptions.m */,
+				33B949C6175756CD001A52B9 /* ButtonOptions.xib */,
 				783502B7173CC99200C2FB51 /* Supporting Files */,
 			);
 			path = "project awesome";
@@ -240,6 +302,19 @@
 				783502C7173CC99300C2FB51 /* Default-568h@2x.png in Resources */,
 				783502CA173CC99300C2FB51 /* MainStoryboard_iPhone.storyboard in Resources */,
 				783502CD173CC99300C2FB51 /* MainStoryboard_iPad.storyboard in Resources */,
+				33B949B317572D98001A52B9 /* PopOverScreen.xib in Resources */,
+				33B949B81757323B001A52B9 /* BackGroundOptions.xib in Resources */,
+				33B949C8175756CD001A52B9 /* ButtonOptions.xib in Resources */,
+				33B94AA61759FC11001A52B9 /* button.png in Resources */,
+				33B94AA71759FC11001A52B9 /* Default.png in Resources */,
+				33B94AA81759FC11001A52B9 /* grassflower.jpg in Resources */,
+				33B94AA91759FC11001A52B9 /* milkyway.jpg in Resources */,
+				33B94AAA1759FC11001A52B9 /* rainbow.jpg in Resources */,
+				33B94AAB1759FC11001A52B9 /* redbutton.png in Resources */,
+				33B94AAC1759FC11001A52B9 /* silver.png in Resources */,
+				33B94AAD1759FC11001A52B9 /* star.png in Resources */,
+				33B94AAE1759FC11001A52B9 /* water.jpg in Resources */,
+				33B94AAF1759FC11001A52B9 /* white_square.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +352,9 @@
 				783502BD173CC99200C2FB51 /* main.m in Sources */,
 				783502C1173CC99200C2FB51 /* AppDelegate.m in Sources */,
 				783502D0173CC99300C2FB51 /* ViewController.m in Sources */,
+				33B949B217572D98001A52B9 /* PopOverScreen.m in Sources */,
+				33B949B71757323B001A52B9 /* BackGroundOptions.m in Sources */,
+				33B949C7175756CD001A52B9 /* ButtonOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +547,7 @@
 				783502EA173CC99300C2FB51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		783502EB173CC99300C2FB51 /* Build configuration list for PBXNativeTarget "project awesomeTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +556,7 @@
 				783502ED173CC99300C2FB51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

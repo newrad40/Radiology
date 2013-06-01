@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 
 public class RadiologyServer {
     private static final int PORT = 80;
-    private static final String HOST = "10.31.37.33";
+    private static final String HOST = "192.168.1.145";
 	public static Robot robot;
 	
     public static void main(String[] args) throws AWTException,IOException {
@@ -45,13 +45,32 @@ public class RadiologyServer {
 						} else if (queryMap.get("event").equals("right_click")) {
 							robot.mousePress(InputEvent.BUTTON3_MASK);
 							robot.mouseRelease(InputEvent.BUTTON3_MASK);
+						} else if (queryMap.get("event").equals("middle_click")) {
+						    robot.mousePress(InputEvent.BUTTON2_MASK);
+						    robot.mouseRelease(InputEvent.BUTTON2_MASK);
 						} else if  (queryMap.get("event").equals("left_down")) {
 							// hold left mouse button down
 							robot.mousePress(InputEvent.BUTTON1_MASK);
 						} else if  (queryMap.get("event").equals("left_up")) {
 							// release left mouse button
 							robot.mouseRelease(InputEvent.BUTTON1_MASK);
-						}
+						} else if  (queryMap.get("event").equals("middle_down")) {
+						    // hold left mouse button down                                       
+						    robot.mousePress(InputEvent.BUTTON2_MASK);
+						} else if  (queryMap.get("event").equals("middle_up")) {
+						    // release left mouse button                                         
+						    robot.mouseRelease(InputEvent.BUTTON2_MASK);
+						} else if (queryMap.get("event").equals("up,key")) {
+						    // release left mouse button                                         
+						    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+						    robot.delay(10);
+						    keyboard(queryMap.get("keycode"));
+                                                } else if (queryMap.get("event").equals("up,key,down")) {
+						    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+						    robot.delay(10);
+						    keyboard(queryMap.get("keycode"));
+						    robot.mousePress(InputEvent.BUTTON1_MASK);
+						}		       
 					}
 					
                     String response = "1";
