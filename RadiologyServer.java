@@ -14,11 +14,17 @@ import java.lang.reflect.Field;
 
 public class RadiologyServer {
     private static final int PORT = 80;
-    private static final String HOST = "192.168.1.145";
-	public static Robot robot;
+    private static final String HOST = "10.31.4.93";
+	private static Robot robot;
+	private static int screen_width;
+	private static int screen_height;
 	
     public static void main(String[] args) throws AWTException,IOException {
 		robot = new Robot();
+		
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		screen_width = gd.getDisplayMode().getWidth();
+		screen_height = gd.getDisplayMode().getHeight();
 	
         System.out.println("Starting HttpServer on port "+PORT);
         try{
@@ -125,7 +131,22 @@ public class RadiologyServer {
 		int y = (int) b.getY();
 		
 		for (int i = 1; i <= num_steps; i++) {
-			robot.mouseMove(x + i * x_step, y + i * y_step);
+			int new_x = x + i * x_step;
+			int new_y = y + i * y_step;
+			
+			if (new_x < 0) {
+				new_x = 0;
+			} else if (new_x > screen_width) {
+				new_x = screen_width;
+			}
+			
+			if (new_y < 0) {
+				new_y = 0;
+			} else if (new_y > screen_height) {
+				new_y = screen_height;
+			}
+			
+			robot.mouseMove(new_x, new_y);
 			robot.delay(delay);
 		}
 	}
