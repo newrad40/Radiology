@@ -14,7 +14,8 @@
 @interface PopOverScreen : UITableViewController
 
 @property (nonatomic, retain) NSArray *optionsArray;
-
+-(void)dismissBackgroundPop;
+-(void)dismissButtonPop;
 
 
 @end

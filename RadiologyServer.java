@@ -1,3 +1,4 @@
+
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -14,7 +15,7 @@ import java.lang.reflect.Field;
 
 public class RadiologyServer {
     private static final int PORT = 80;
-    private static final String HOST = "10.31.4.93";
+    private static final String HOST = "192.168.1.145";
 	private static Robot robot;
 	private static int screen_width;
 	private static int screen_height;

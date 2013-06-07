@@ -152,8 +152,8 @@
             break;
         
     }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ChangeBackground" object:self userInfo:image];
-
+    
 }
-
 @end

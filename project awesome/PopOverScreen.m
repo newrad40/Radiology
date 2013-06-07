@@ -24,6 +24,14 @@
 
 @synthesize optionsArray;
 
+-(void)dismissBackgroundPop{
+    [backgroundController dismissPopoverAnimated:YES];
+}
+
+-(void)dismissButtonPop {
+    [buttonController dismissPopoverAnimated:YES];
+}
+
 -(void)ShowButtonOptions{
     
     if ([buttonController isPopoverVisible]) {
@@ -85,8 +93,12 @@
     backgroundScreen = [[BackGroundOptions alloc] initWithNibName:@"BackGroundOptions" bundle:nil];
     backgroundController = [[UIPopoverController alloc] initWithContentViewController:backgroundScreen];
     
+    
     buttonScreen = [[ButtonOptions alloc] initWithNibName:@"ButtonOptions" bundle:nil];
+    
     buttonController = [[UIPopoverController alloc] initWithContentViewController:buttonScreen];
+    
+    
     
 
     // Uncomment the following line to preserve selection between presentations.

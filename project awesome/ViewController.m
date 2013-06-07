@@ -55,6 +55,17 @@
     NSLog(currBackgroundPicture);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:(NSString *)filename]];
     
+    for (UIView *view in self.view.subviews)
+    {
+        if([view isKindOfClass:[UIView class]]) {
+            UIView *tmp = (UIView*)view;
+            
+            //tmp.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:[Data userInfo]]];
+        }
+    }
+    
+    [popoverController dismissPopoverAnimated:YES];
+    [popScreen dismissBackgroundPop];
 }
 
 -(void)changeButtonShape:(NSNotification *)Data{
@@ -82,6 +93,8 @@
         }
     }
     
+    [popScreen dismissButtonPop];
+    [popoverController dismissPopoverAnimated:YES];
  
 }
 
@@ -127,6 +140,13 @@
 {
     [super viewDidLoad];
     
+    UIImage *customBackground = [UIImage imageNamed:@"play.png"];
+    [self.cine_play_pause_btn setBackgroundImage:customBackground
+                   forState:UIControlStateNormal];
+    [self.cine_play_pause_btn setTitleColor:[UIColor clearColor]  forState:UIControlStateNormal];
+    [self.cine_play_pause_btn setTitleColor:[UIColor clearColor]  forState:UIControlStateHighlighted];
+    self.cine_play_pause_btn.layer.cornerRadius = 50;
+    
     createAccount = false;
     login = false;
     
@@ -161,8 +181,8 @@
     self.inZoomMode = false;
     self.inPanMode = false;
     [self.z_tap_twice setNumberOfTouchesRequired:2];
-    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
-    self.slider.transform = trans;
+    //CGAffineTransform trans = zCGAffineTransformMakeRotation(M_PI * 0.5);
+    //self.scroll_view.transform = trans;
     self.scrollerPrevYOffset = 0.0;
     [self.swipe_on_mousepad_gesture setNumberOfTouchesRequired:2];
     [self.swipe_on_mousepad_gesture setDirection: UISwipeGestureRecognizerDirectionRight];
@@ -176,7 +196,6 @@
     self.defaultBackgroundPath = @"texture1.jpg";
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.defaultBackgroundPath]];
-    self.scroller_active_label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.defaultBackgroundPath]];
     
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"scroll-wheel1.jpg"] drawInRect:self.scroll_area_label.bounds];
@@ -189,6 +208,9 @@
     self.popout_view.layer.masksToBounds = YES;
     [self.popout_view.layer setBorderColor: borderColor.CGColor];
     [self.popout_view.layer setBorderWidth:5.0f];
+    
+    [self.v_bar_label_drag_scroll setBackgroundColor:borderColor];
+    self.v_bar_label_drag_scroll.layer.cornerRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning
@@ -262,6 +284,8 @@
     [self setScroll_area_label:nil];
     [self setScroller_active_label:nil];
     [self setPopout_menu_mask:nil];
+    [self setV_bar_label_drag_scroll:nil];
+    [self setCine_play_pause_btn:nil];
     [super viewDidUnload];
 }
 
@@ -824,6 +848,7 @@
         [self.view bringSubviewToFront:self.popout_view];
         [self.view bringSubviewToFront:self.menu_release];
         self.popout_view.hidden = false;
+        
     } else {
         [sender setTitle:@">" forState:UIControlStateNormal];
         self.popout_view.hidden = true;
@@ -836,9 +861,15 @@
         [self cine_slider_change:sender];
         self.const_scroll_timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
         [sender setTitle:@"||" forState:UIControlStateNormal];
+         UIImage *customBackground = [UIImage imageNamed:@"pause.png"];
+        [self.cine_play_pause_btn setBackgroundImage:customBackground
+                                            forState:UIControlStateNormal];
     } else {
         [self end_cine_play:sender];
         [sender setTitle:@"|>" forState:UIControlStateNormal];
+        UIImage *customBackground = [UIImage imageNamed:@"play.png"];
+        [self.cine_play_pause_btn setBackgroundImage:customBackground
+                                            forState:UIControlStateNormal];
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PopOverScreen.h"
+#import "BackGroundOptions.h"
 
 @interface ViewController : UIViewController
 
@@ -27,6 +28,7 @@
 - (IBAction)CustomizeScreen:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *cine_play_pause_btn;
 
 
 - (IBAction)handleScroll:(id)sender;
@@ -80,6 +82,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *cine_slider;
 @property (weak, nonatomic) IBOutlet UIView *cine_view;
 
+@property (weak, nonatomic) IBOutlet UILabel *v_bar_label_drag_scroll;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipe_on_mousepad_gesture;
 @property (weak, nonatomic) IBOutlet UIView *xray_series_view;
 @property (weak, nonatomic) IBOutlet UIView *sliding_scroll_view;

@@ -42,6 +42,8 @@
 		783502E5173CC99300C2FB51 /* project_awesomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 783502E4173CC99300C2FB51 /* project_awesomeTests.m */; };
 		788F48F117618E2400FA1B84 /* texture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 788F48F017618E2400FA1B84 /* texture1.jpg */; };
 		788F48F31761A5FB00FA1B84 /* scroll-wheel1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 788F48F21761A5FB00FA1B84 /* scroll-wheel1.jpg */; };
+		788F48F51761ED4900FA1B84 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F48F41761ED4900FA1B84 /* play.png */; };
+		788F48F71761ED5000FA1B84 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F48F61761ED5000FA1B84 /* pause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		783502E4173CC99300C2FB51 /* project_awesomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = project_awesomeTests.m; sourceTree = "<group>"; };
 		788F48F017618E2400FA1B84 /* texture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture1.jpg; sourceTree = "<group>"; };
 		788F48F21761A5FB00FA1B84 /* scroll-wheel1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "scroll-wheel1.jpg"; sourceTree = "<group>"; };
+		788F48F41761ED4900FA1B84 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		788F48F61761ED5000FA1B84 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		33B94A9B1759FC11001A52B9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				788F48F61761ED5000FA1B84 /* pause.png */,
+				788F48F41761ED4900FA1B84 /* play.png */,
 				788F48F21761A5FB00FA1B84 /* scroll-wheel1.jpg */,
 				788F48F017618E2400FA1B84 /* texture1.jpg */,
 				33B94A9C1759FC11001A52B9 /* button.png */,
@@ -323,6 +329,8 @@
 				33B94AAF1759FC11001A52B9 /* white_square.png in Resources */,
 				788F48F117618E2400FA1B84 /* texture1.jpg in Resources */,
 				788F48F31761A5FB00FA1B84 /* scroll-wheel1.jpg in Resources */,
+				788F48F51761ED4900FA1B84 /* play.png in Resources */,
+				788F48F71761ED5000FA1B84 /* pause.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
