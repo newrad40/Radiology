@@ -211,8 +211,10 @@
             break;
         case 4:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"SetIP" object:self userInfo:@""];
+            break;
         case 5:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"SetKeyMappings" object:self userInfo:@""];
+            break;
     }
 
 }

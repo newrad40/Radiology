@@ -1,4 +1,3 @@
-
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -118,6 +117,13 @@ public class RadiologyServer {
 			robot.delay(10);
 			robot.keyPress(keycode);
 		}
+		robot.delay(20);
+		for (int i = 0; i < tmp_arr.length; i++) {
+		    int keycode = Integer.parseInt(tmp_arr[i]);
+		    robot.delay(5);
+		    robot.keyRelease(keycode);
+                }
+
 	}
 	
 	public static void mouseMove(Map<String, String> queryMap) {
@@ -137,14 +143,14 @@ public class RadiologyServer {
 			
 			if (new_x < 0) {
 				new_x = 0;
-			} else if (new_x > screen_width) {
-				new_x = screen_width;
+			} else if (new_x > screen_width - 1) {
+				new_x = screen_width - 1;
 			}
 			
 			if (new_y < 0) {
 				new_y = 0;
-			} else if (new_y > screen_height) {
-				new_y = screen_height;
+			} else if (new_y > screen_height - 1) {
+				new_y = screen_height - 1;
 			}
 			
 			robot.mouseMove(new_x, new_y);

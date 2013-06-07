@@ -33,6 +33,7 @@
 -(void)ToDefault:(NSNotification *)Data {
     currBackgroundPicture = self.defaultBackgroundPath;
     currButtonPicture = @"None";
+    self.currKeyScheme = @"Osirix";
     
     [self UpdateScreen:nil];
     
@@ -66,6 +67,32 @@
                            forState:UIControlStateNormal];
         }
     }
+    
+    for (UIView *view in self.view.subviews)
+    {
+        if([view isKindOfClass:[UIView class]])
+        {
+            for (UIView *subview in view.subviews)
+            {
+                if([subview isKindOfClass:[UIButton class]])
+                {
+                        
+                    UIImage *customBackground = [UIImage imageNamed:name];
+            
+                    if([name isEqualToString:@"None"]) {
+                        customBackground = nil;
+                    }
+            
+                    UIButton *btn = (UIButton*)subview;
+            
+                    [btn setBackgroundImage:customBackground
+                           forState:UIControlStateNormal];
+                    
+                
+               }
+            }
+        }
+    }
 
 }
 
@@ -74,15 +101,6 @@
     currBackgroundPicture = filename;
     NSLog(currBackgroundPicture);
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:(NSString *)filename]];
-    
-    for (UIView *view in self.view.subviews)
-    {
-        if([view isKindOfClass:[UIView class]]) {
-            UIView *tmp = (UIView*)view;
-            
-            //tmp.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:[Data userInfo]]];
-        }
-    }
     
     [popoverController dismissPopoverAnimated:YES];
     [popScreen dismissBackgroundPop];
@@ -177,12 +195,12 @@
     [osirix_mappings setObject:@"83" forKey:@"Select"];
     [osirix_mappings setObject:@"67" forKey:@"Cine"];
     [osirix_mappings setObject:@"80" forKey:@"Deselect"];
-    [osirix_mappings setObject:@"91,82" forKey:@"Reset"];
+    [osirix_mappings setObject:@"157,82" forKey:@"Reset"];
     [osirix_mappings setObject:@"66" forKey:@"Smat"];
     [osirix_mappings setObject:@"86" forKey:@"Screen-Cine"];
     [osirix_mappings setObject:@"65" forKey:@"Angle"];
-    [osirix_mappings setObject:@"91,39" forKey:@"NextSeries"];
-    [osirix_mappings setObject:@"91,37" forKey:@"PrevSeries"];
+    [osirix_mappings setObject:@"157,39" forKey:@"NextSeries"];
+    [osirix_mappings setObject:@"157,37" forKey:@"PrevSeries"];
     [osirix_mappings setObject:@"38,91,39" forKey:@"NextPatient"];
     [osirix_mappings setObject:@"38,91,37" forKey:@"PrevPatient"];
     
@@ -208,6 +226,8 @@
 
 - (void)viewDidLoad
 {
+    self.defaultBackgroundPath = @"texture1.jpg";
+    
     [super viewDidLoad];
     
     [self initKeyMappings];
@@ -270,7 +290,6 @@
     self.needs_to_mouseup_on_endpan = false;
     [self.middle_click setNumberOfTouchesRequired:3];
     
-    self.defaultBackgroundPath = @"texture1.jpg";
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.defaultBackgroundPath]];
     
@@ -738,28 +757,8 @@
 }
 
 -(void)UpdateScreen:(NSString *)name{
-    //Update background color
+    [self SetButtonBackground:currButtonPicture];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:currBackgroundPicture]];
-    
-    UIImage *customBackground = [UIImage imageNamed:currButtonPicture];
-    
-    //  UIButton *button = [UIButton appearance];
-    //  [button set/BackgroundImage:[UIImage imageNamed:@"button.png"]
-    //      forState:UIControlStateNormal];
-    
-    // [[UIButton appearance] setBackButtonBackgroundImage:customBackground forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    for (UIView *view in self.view.subviews)
-    {
-        if([view isKindOfClass:[UIButton class]])
-        {
-            UIButton *btn = (UIButton*)view;
-            
-            [btn setBackgroundImage:customBackground
-                           forState:UIControlStateNormal];
-        }
-    }
-    
 }
 
 //
@@ -782,9 +781,19 @@
         currBackgroundPicture = [dictionary objectForKey:@"background"];
         currButtonPicture = [dictionary objectForKey:@"buttons"];
         self.ip_field.text = [dictionary objectForKey:@"ip"];
+        self.currKeyScheme = [dictionary objectForKey:@"keyScheme"];
         
         [self UpdateScreen:name];
     }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:@"Profile does not exist"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert setAlertViewStyle:UIAlertViewStyleDefault];
+            [alert show];
+        
+        
         NSLog(@"That profile doesn't exist");
     }
     
@@ -804,13 +813,17 @@
         [dictionary setObject:currBackgroundPicture forKey:@"background"];
         [dictionary setObject:currButtonPicture forKey:@"buttons"];
         [dictionary setObject:self.ip_field.text forKey:@"ip"];
+        [dictionary setObject:self.currKeyScheme forKey:@"keyScheme"];
         
         [prefs setObject:dictionary forKey:currProfileName];
     }
     
+    
     if ([popoverController isPopoverVisible]) {
         [popoverController dismissPopoverAnimated:YES];
     }
+    
+    NSLog(@"left");
 }
 
 
@@ -890,10 +903,10 @@
             NSString *name = [[alertView textFieldAtIndex:0] text];
             [self AddAccount:name];
         }
-    } else if (alertView.tag == 2) {
-        if (buttonIndex == 0) {
+    } else if (alertView.tag == 3) {
+        if (buttonIndex == 1) {
             self.currKeyScheme = @"Osirix";
-        } else if (buttonIndex == 1) {
+        } else if (buttonIndex == 2) {
             self.currKeyScheme = @"GE";
         }
     }
