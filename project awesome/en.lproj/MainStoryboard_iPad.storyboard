@@ -72,6 +72,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="on_prev_series:" destination="2" eventType="touchUpInside" id="F1J-3d-Etd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zuZ-JR-Ulc">
                                         <rect key="frame" x="246" y="62" width="67" height="241"/>
@@ -99,6 +102,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="on_next_patient:" destination="2" eventType="touchUpInside" id="PQ0-hs-vVx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="buu-fD-AaX">
                                         <rect key="frame" x="14" y="62" width="97" height="242"/>
@@ -111,6 +117,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="on_prev_patient:" destination="2" eventType="touchUpInside" id="Lld-ca-Oic"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </view>
@@ -443,7 +452,7 @@
                                     <outletCollection property="gestureRecognizers" destination="AvD-qB-hfH" appends="YES" id="9qf-Ph-6JG"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bHK-aD-Tbq">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bHK-aD-Tbq">
                                 <rect key="frame" x="111" y="209" width="267" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -685,6 +694,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_prev_patient:" destination="2" eventType="touchUpInside" id="VAR-iG-Dto"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="172-fJ-piA">
                                 <rect key="frame" x="61" y="169" width="42" height="44"/>
@@ -697,6 +709,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="on_next_patient:" destination="2" eventType="touchUpInside" id="Bof-pg-E0X"/>
+                                </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" id="T3v-Sb-c2w">
                                 <rect key="frame" x="541" y="371" width="337" height="357"/>

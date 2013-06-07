@@ -84,21 +84,27 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *v_bar_label_drag_scroll;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipe_on_mousepad_gesture;
+-(NSString*)getKeyCodesForAction:(NSString*)action;
 @property (weak, nonatomic) IBOutlet UIView *xray_series_view;
 @property (weak, nonatomic) IBOutlet UIView *sliding_scroll_view;
 @property (weak, nonatomic) IBOutlet UIView *ct_func_btns_view;
 @property (weak, nonatomic) IBOutlet UIView *ultrasound_func_btns_view;
 @property (weak, nonatomic) IBOutlet UIView *xray_func_btns_view;
-
+-(void)pressKeys:(NSString*) keys;
 @property (weak, nonatomic) IBOutlet UIButton *menu_release;
 @property NSTimeInterval time_last_pad_click;
 @property bool needs_to_mouseup_on_endpan;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *middle_click;
-
+-(void)performKeyAction:(NSString*) action;
 @property (weak, nonatomic) IBOutlet UILabel *scroller_active_label;
 
 @property NSString *defaultBackgroundPath;
 @property (weak, nonatomic) IBOutlet UILabel *scroll_area_label;
 @property (weak, nonatomic) IBOutlet UILabel *popout_menu_mask;
+
+
+@property NSMutableDictionary *key_mappings;
+-(void) initKeyMappings;
+@property NSString *currKeyScheme;
 
 @end

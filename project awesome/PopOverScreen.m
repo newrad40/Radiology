@@ -88,7 +88,7 @@
     [super viewDidLoad];
     
     self.optionsArray =
-    [NSArray arrayWithObjects:@"Background", @"Buttons", @"Save Settings", @"Revert to Default", @"Set IP", nil];
+    [NSArray arrayWithObjects:@"Background", @"Buttons", @"Save Settings", @"Revert to Default", @"Set IP", @"Set Key Mappings", nil];
     
     backgroundScreen = [[BackGroundOptions alloc] initWithNibName:@"BackGroundOptions" bundle:nil];
     backgroundController = [[UIPopoverController alloc] initWithContentViewController:backgroundScreen];
@@ -211,6 +211,8 @@
             break;
         case 4:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"SetIP" object:self userInfo:@""];
+        case 5:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SetKeyMappings" object:self userInfo:@""];
     }
 
 }

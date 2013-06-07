@@ -137,10 +137,81 @@
     [self get_url:base];
 }
 
+-(void) SetKeyMappings:(NSNotification *)Data {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Set Key Mappings" message:@"Choose the name of the program you are using" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Osirix", @"GE", nil];
+    [alert setAlertViewStyle:UIAlertViewStyleDefault];
+    [alert setTag:3];
+    [alert show];
+    [popoverController dismissPopoverAnimated:YES];
+
+}
+
+-(void) initKeyMappings {
+    self.key_mappings = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary *osirix_mappings = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *GE_mappings = [[NSMutableDictionary alloc] init];
+
+    
+    [GE_mappings setObject:@"65" forKey:@"Annotate"];
+    [GE_mappings setObject:@"68" forKey:@"Dist"];
+    [GE_mappings setObject:@"82" forKey:@"ROI"];
+    [GE_mappings setObject:@"83" forKey:@"Select"];
+    [GE_mappings setObject:@"67" forKey:@"Cine"];
+    [GE_mappings setObject:@"80" forKey:@"Deselect"];
+    [GE_mappings setObject:@"79" forKey:@"Reset"];
+    [GE_mappings setObject:@"66" forKey:@"Smat"];
+    [GE_mappings setObject:@"86" forKey:@"Screen-Cine"];
+    [GE_mappings setObject:@"76" forKey:@"Angle"];
+    [GE_mappings setObject:@"38" forKey:@"NextSeries"];
+    [GE_mappings setObject:@"40" forKey:@"PrevSeries"];
+    [GE_mappings setObject:@"38" forKey:@"NextPatient"];
+    [GE_mappings setObject:@"40" forKey:@"PrevPatient"];
+    
+    
+    
+    
+    [osirix_mappings setObject:@"84" forKey:@"Annotate"];
+    [osirix_mappings setObject:@"76" forKey:@"Dist"];
+    [osirix_mappings setObject:@"82" forKey:@"ROI"];
+    [osirix_mappings setObject:@"83" forKey:@"Select"];
+    [osirix_mappings setObject:@"67" forKey:@"Cine"];
+    [osirix_mappings setObject:@"80" forKey:@"Deselect"];
+    [osirix_mappings setObject:@"91,82" forKey:@"Reset"];
+    [osirix_mappings setObject:@"66" forKey:@"Smat"];
+    [osirix_mappings setObject:@"86" forKey:@"Screen-Cine"];
+    [osirix_mappings setObject:@"65" forKey:@"Angle"];
+    [osirix_mappings setObject:@"91,39" forKey:@"NextSeries"];
+    [osirix_mappings setObject:@"91,37" forKey:@"PrevSeries"];
+    [osirix_mappings setObject:@"38,91,39" forKey:@"NextPatient"];
+    [osirix_mappings setObject:@"38,91,37" forKey:@"PrevPatient"];
+    
+    
+    
+    [self.key_mappings setObject:osirix_mappings forKey:@"Osirix"];
+    [self.key_mappings setObject:GE_mappings forKey:@"GE"];
+}
+
+-(NSString*)getKeyCodesForAction:(NSString*)action {
+    NSMutableDictionary *dict = [self.key_mappings objectForKey:self.currKeyScheme];
+    return [dict objectForKey:action];
+}
+
+-(void)pressKeys:(NSString*) keys {
+    [self send_input:[@"input=keyboard&keycodes=" stringByAppendingString:keys]];
+}
+
+-(void)performKeyAction:(NSString*) action {
+    NSString *keycodes = [self getKeyCodesForAction:action];
+    [self pressKeys:keycodes];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self initKeyMappings];
+    self.currKeyScheme = @"Osirix";
     
     UIImage *customBackground = [UIImage imageNamed:@"play.png"];
     [self.cine_play_pause_btn setBackgroundImage:customBackground
@@ -168,6 +239,8 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SaveSettings:) name:@"SaveSettings" object:nil];
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SetIP:) name:@"SetIP" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SetKeyMappings:) name:@"SetKeyMappings" object:nil];
     
 	// Do any additional setup after loading the view, typically from a nib.
     [self.mousepad.layer setBorderWidth:4.0];
@@ -415,31 +488,31 @@
     [self send_input:@"input=keyboard&keycodes=73"];
 }
 - (IBAction)on_dist:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=68"];
+    [self performKeyAction:@"Dist"];
 }
 - (IBAction)on_cin:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=67"];
+    [self performKeyAction:@"Cine"];
 }
 - (IBAction)on_select:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=83"];
+    [self performKeyAction:@"Select"];
 }
 - (IBAction)on_deselect:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=80"];
+    [self performKeyAction:@"Deselect"];
 }
 - (IBAction)on_roi:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=82"];
+    [self performKeyAction:@"ROI"];
 }
 - (IBAction)on_reset:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=79"];
+    [self performKeyAction:@"Reset"];
 }
 - (IBAction)on_smat:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=66"];
+    [self performKeyAction:@"Smat"];
 }
 - (IBAction)on_screen_cine:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=86"];
+    [self performKeyAction:@"Screen-Cine"];
 }
 - (IBAction)on_angle:(id)sender {
-    [self send_input:@"input=keyboard&keycodes=76"];
+    [self performKeyAction:@"Angle"];
 }
 - (IBAction)on_6:(id)sender {
     [self send_input:@"input=keyboard&keycodes=54"];
@@ -556,6 +629,17 @@
     }
 }
 - (IBAction)on_next_series:(id)sender {
+    [self performKeyAction:@"NextSeries"];
+}
+- (IBAction)on_prev_series:(id)sender {
+    [self performKeyAction:@"PrevSeries"];
+}
+
+- (IBAction)on_next_patient:(id)sender {
+    [self performKeyAction:@"NextPatient"];
+}
+- (IBAction)on_prev_patient:(id)sender {
+    [self performKeyAction:@"PrevPatient"];
 }
 
 - (void)on_z:(id)sender {
@@ -806,6 +890,12 @@
             NSString *name = [[alertView textFieldAtIndex:0] text];
             [self AddAccount:name];
         }
+    } else if (alertView.tag == 2) {
+        if (buttonIndex == 0) {
+            self.currKeyScheme = @"Osirix";
+        } else if (buttonIndex == 1) {
+            self.currKeyScheme = @"GE";
+        }
     }
 }
 
@@ -849,11 +939,13 @@
 }
 - (IBAction)swipe_on_mousepad2:(id)sender {
     // right mousepad swipe, 2 fingers
-    self.test_output.text = @"Right";
+    //self.test_output.text = @"Right";
+    [self performKeyAction:@"NextSeries"];
 }
 - (IBAction)swipe_on_mousepad1:(id)sender {
     // left mousepad swipe, 2 fingers
-    self.test_output.text = @"Left";
+    //self.test_output.text = @"Left";
+    [self performKeyAction:@"PrevSeries"];
 }
 
 
