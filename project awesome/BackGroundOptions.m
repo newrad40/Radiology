@@ -34,7 +34,7 @@
     [super viewDidLoad];
     
     self.backgroundsArray =
-    [NSArray arrayWithObjects:@"Milky Way", @"Silver", @"Rainbow", @"Water", @"Grass", nil];
+    [NSArray arrayWithObjects:@"Milky Way", @"Silver", @"Rainbow", @"Water", @"Grass", @"Default", nil];
     
 
 
@@ -149,6 +149,9 @@
             break;
         case 4:
             image = @"grassflower.jpg";
+            break;
+        case 5:
+            image = @"texture1.jpg";
             break;
         
     }

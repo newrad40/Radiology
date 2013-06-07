@@ -88,7 +88,7 @@
     [super viewDidLoad];
     
     self.optionsArray =
-    [NSArray arrayWithObjects:@"Buttons", @"Background", @"Save Settings", @"Revert to Default", nil];
+    [NSArray arrayWithObjects:@"Background", @"Buttons", @"Save Settings", @"Revert to Default", @"Set IP", nil];
     
     backgroundScreen = [[BackGroundOptions alloc] initWithNibName:@"BackGroundOptions" bundle:nil];
     backgroundController = [[UIPopoverController alloc] initWithContentViewController:backgroundScreen];
@@ -198,10 +198,10 @@
     int selectedEntry = indexPath.row;
     switch(selectedEntry){
         case 0:
-            [self ShowButtonOptions];
+            [self ShowBackgroundOptions];
             break;
         case 1:
-          [self ShowBackgroundOptions];
+          [self ShowButtonOptions];
             break;
         case 2:
             [[NSNotificationCenter defaultCenter] postNotificationName:@"SaveSettings" object:self userInfo:@""];
@@ -209,8 +209,12 @@
         case 3:
              [[NSNotificationCenter defaultCenter] postNotificationName:@"MakeDefault" object:self userInfo:@""];
             break;
+        case 4:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SetIP" object:self userInfo:@""];
     }
 
 }
+
+
 
 @end

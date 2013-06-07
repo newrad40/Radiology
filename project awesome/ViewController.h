@@ -27,7 +27,7 @@
 
 - (IBAction)CustomizeScreen:(id)sender;
 
-
+-(void)SetButtonBackground:(NSString*)name;
 @property (weak, nonatomic) IBOutlet UIButton *cine_play_pause_btn;
 
 

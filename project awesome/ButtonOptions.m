@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
     self.buttonsArray =
-    [NSArray arrayWithObjects:@"Button Shape", @"Red Button", @"Star", nil];
+    [NSArray arrayWithObjects:@"Red Button", @"Star", @"Square", @"Button Shape", @"Default", nil];
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -129,13 +129,19 @@
     NSString *image;
     switch(selectedEntry){
         case 0:
-            image = @"button.png";
-            break;
-        case 1:
             image = @"redbutton.png";
             break;
-        case 2:
+        case 1:
             image = @"star.png";
+            break;
+        case 2:
+            image = @"white_square.png";
+            break;
+        case 3:
+            image = @"button.png";
+            break;
+        case 4:
+            image = @"None";
             break;
     }
     

@@ -31,25 +31,45 @@
 @synthesize btnCustomize;
 
 -(void)ToDefault:(NSNotification *)Data {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default.png"]];
+    currBackgroundPicture = self.defaultBackgroundPath;
+    currButtonPicture = @"None";
     
+    [self UpdateScreen:nil];
+    
+    if ([popoverController isPopoverVisible]) {
+        [popoverController dismissPopoverAnimated:YES];
+    }
+}
+
+-(void)SetButtonBackground:(NSString*)name {
+    currButtonPicture = name;
+    
+    //  UIButton *button = [UIButton appearance];
+    //  [button set/BackgroundImage:[UIImage imageNamed:@"button.png"]
+    //      forState:UIControlStateNormal];
+    
+    // [[UIButton appearance] setBackButtonBackgroundImage:customBackground forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     for (UIView *view in self.view.subviews)
     {
         if([view isKindOfClass:[UIButton class]])
         {
+            UIImage *customBackground = [UIImage imageNamed:name];
+            
+            if([name isEqualToString:@"None"]) {
+                customBackground = nil;
+            }
+            
             UIButton *btn = (UIButton*)view;
             
-          //  [btn setBackgroundImage:customBackground
-            //               forState:UIControlStateNormal];
-            [btn setBackgroundImage:[UIImage imageNamed:@"white_square.png"] forState:UIControlStateNormal];
+            [btn setBackgroundImage:customBackground
+                           forState:UIControlStateNormal];
         }
     }
 
 }
 
 - (void)changeBackgroundView:(NSNotification *)Data {
-    
     NSString *filename = [Data userInfo];
     currBackgroundPicture = filename;
     NSLog(currBackgroundPicture);
@@ -68,34 +88,16 @@
     [popScreen dismissBackgroundPop];
 }
 
+- (void)SetIP:(NSNotification *)Data {
+    [self set_ip_button:self];
+    [popoverController dismissPopoverAnimated:YES];
+}
+
 -(void)changeButtonShape:(NSNotification *)Data{
- 
     NSString *filename = [Data userInfo];
-    currButtonPicture = filename;
-    NSLog(currButtonPicture);
-    
-    UIImage *customBackground = [UIImage imageNamed:filename];
-    
-  //  UIButton *button = [UIButton appearance];
-  //  [button set/BackgroundImage:[UIImage imageNamed:@"button.png"]
-                  //      forState:UIControlStateNormal];
-    
-    // [[UIButton appearance] setBackButtonBackgroundImage:customBackground forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    for (UIView *view in self.view.subviews)
-    {
-        if([view isKindOfClass:[UIButton class]])
-        {
-            UIButton *btn = (UIButton*)view;
-            
-            [btn setBackgroundImage:customBackground
-                           forState:UIControlStateNormal];
-        }
-    }
-    
+    [self SetButtonBackground:filename];
     [popScreen dismissButtonPop];
     [popoverController dismissPopoverAnimated:YES];
- 
 }
 
 - (IBAction)menuTrigger:(id)sender {
@@ -150,8 +152,8 @@
     createAccount = false;
     login = false;
     
-    currBackgroundPicture = @"Default.png";
-    currButtonPicture = @"white_square.png";
+    currBackgroundPicture = self.defaultBackgroundPath;
+    currButtonPicture = @"None";
     currProfileName = @"None";
     
     popScreen = [[PopOverScreen alloc] initWithNibName:@"PopOverScreen" bundle:nil];
@@ -164,6 +166,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ToDefault:) name:@"MakeDefault" object:nil];
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SaveSettings:) name:@"SaveSettings" object:nil];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SetIP:) name:@"SetIP" object:nil];
     
 	// Do any additional setup after loading the view, typically from a nib.
     [self.mousepad.layer setBorderWidth:4.0];
@@ -372,6 +376,7 @@
         }
     }
 }
+
 
 - (IBAction)on_middle_click:(id)sender {
     [self send_input:@"input=mouse&event=middle_click"];
@@ -644,7 +649,7 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In" message:@"Enter Your Profile Name" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     UITextField *textField = [alert textFieldAtIndex:0];
-    [alert setTag:0];
+    [alert setTag:1];
     [alert show];
 }
 
@@ -675,44 +680,26 @@
 
 //
 -(void)LoginToProfile:(NSString *)name{
-  
+  /*
     NSString *filePath = [[@"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles/" stringByAppendingString:name] stringByAppendingString:@".txt"];
     NSLog(filePath);
     NSString *filesContent = [[NSString alloc] initWithContentsOfFile:filePath];
     
     NSLog(@"CONTENT!");
     NSLog(filesContent);
+ */
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    if([filesContent length] != 0){
+    if([prefs objectForKey:name]){
+        NSMutableDictionary *dictionary = (NSMutableDictionary*)[prefs objectForKey:name];
+        
         NSLog(@"Welcome!");
         currProfileName = name;
-        
-        NSString *contents = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:nil];
-        NSArray *lines = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
-        int i = 0;
-        for (NSString* line in lines) {
-            if (line.length) {
-                NSLog(@"line: %@", line);
-                switch(i){
-                    case 0:
-                        currProfileName = line;
-                        break;
-                    case 1:
-                        currBackgroundPicture = line;
-                        break;
-                    case 2:
-                        currButtonPicture = line;
-                        break;
-                }
-                i++;
-            }
-        }
+        currBackgroundPicture = [dictionary objectForKey:@"background"];
+        currButtonPicture = [dictionary objectForKey:@"buttons"];
+        self.ip_field.text = [dictionary objectForKey:@"ip"];
         
         [self UpdateScreen:name];
-        
- 
-        
-        
     }else{
         NSLog(@"That profile doesn't exist");
     }
@@ -724,30 +711,21 @@
     if(![currProfileName isEqual: @"None"]){
         
         NSLog(@"SAVING!");
+        NSLog(currProfileName);
         
-        NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *directory = @"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles";//[paths objectAtIndex:0];
-        NSString *fileName = [currProfileName stringByAppendingString:@".txt"];
-        NSString *filePath = [directory stringByAppendingPathComponent:fileName];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
         
+      
+        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+        [dictionary setObject:currBackgroundPicture forKey:@"background"];
+        [dictionary setObject:currButtonPicture forKey:@"buttons"];
+        [dictionary setObject:self.ip_field.text forKey:@"ip"];
         
-        NSString *writeName = [currProfileName stringByAppendingString:@"\n"];
-        NSString *writeBackground = [currBackgroundPicture stringByAppendingString:@"\n"];
-        NSString *writeButton = [currButtonPicture stringByAppendingString:@"\n"];
-
+        [prefs setObject:dictionary forKey:currProfileName];
+    }
     
-        [writeName writeToFile:filePath atomically:YES encoding:NSASCIIStringEncoding error:nil];
-
-        NSFileHandle *myHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
-        [myHandle seekToEndOfFile];
-        [myHandle writeData:  [writeBackground dataUsingEncoding:NSUTF8StringEncoding]];
-        [myHandle seekToEndOfFile];
-        [myHandle writeData:  [writeButton dataUsingEncoding:NSUTF8StringEncoding]];
-
-        [myHandle closeFile];
-        
-        
-    
+    if ([popoverController isPopoverVisible]) {
+        [popoverController dismissPopoverAnimated:YES];
     }
 }
 
@@ -755,47 +733,27 @@
 -(void)AddAccount:(NSString *)name{
     
     //Check to see if name is already taken
-    NSString *filePath = [[@"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles/" stringByAppendingString:name] stringByAppendingString:@".txt"];
-    NSLog(filePath);
-    NSString *filesContent = [[NSString alloc] initWithContentsOfFile:filePath];
+  
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+      
+    if ([prefs objectForKey:name]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"User name already taken"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert setAlertViewStyle:UIAlertViewStyleDefault];
+        [alert show];
+        return;
+    }
     
-    if([filesContent length] != 0)
-        return; //File taken already
-    
-    
-    NSString *accountFile = [name stringByAppendingString:@".txt"];
-    
-  //  NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = @"/Users/christopherfontas/Desktop/Stanford/Senior_Year/cs194/Radiology-master/Profiles";//[documentPaths objectAtIndex:0];
-    NSString *documentTXTPath = [documentsDirectory stringByAppendingPathComponent:accountFile];
-        
-    
-    NSString *writeName = [name stringByAppendingString:@"\n"];
-
-    
-    [writeName writeToFile:documentTXTPath atomically:YES];
-    
-    currProfileName = name; //Automatically sign in when you create an account
-    currBackgroundPicture = @"Default.png";
-    currButtonPicture = @"white_square.png";
-    
-    NSString *writeBackground = [currBackgroundPicture stringByAppendingString:@"\n"];
-    NSString *writeButton = [currButtonPicture stringByAppendingString:@"\n"];
-    
-        
-    NSFileHandle *myHandle = [NSFileHandle fileHandleForUpdatingAtPath:documentTXTPath];
-    [myHandle seekToEndOfFile];
-    [myHandle writeData:  [writeBackground dataUsingEncoding:NSUTF8StringEncoding]];
-    [myHandle seekToEndOfFile];
-    [myHandle writeData:  [writeButton dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [myHandle closeFile];
-    
-    [self LoginToProfile:name];
-    
-    
+    NSLog(@"Adding account");
+    currProfileName = name;
+    [prefs setObject:@"" forKey:name];
+    [self SaveSettings:nil];
+    [popoverController dismissPopoverAnimated:YES];
 }
-
+/*
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
@@ -809,7 +767,7 @@
         }
 
     }
-}
+}*/
 
 //Use when someone is trying to create a new account.
 - (IBAction)CreateAccount:(id)sender {
@@ -818,7 +776,7 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create Account" message:@"Enter Your Desired Profile Name Please" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Enter", nil];
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     UITextField *textField = [alert textFieldAtIndex:0];
-    [alert setTag:0];
+    [alert setTag:2];
     [alert show];
 }
 
@@ -829,14 +787,24 @@
     textField.text = self.ip_field.text;
     [alert setTag:0];
     [alert show];
-    [self popout_show:self.menu_release];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
     // ip field
     if (alertView.tag == 0) {
         if (buttonIndex == 1) {
             self.ip_field.text = [[alertView textFieldAtIndex:0] text];
+        }
+    } else if (alertView.tag == 1) {
+        if (buttonIndex == 1) {
+            NSString *name = [[alertView textFieldAtIndex:0] text];
+            [self LoginToProfile:name];
+        }
+    } else if (alertView.tag == 2) {
+        if (buttonIndex == 1) {
+            NSString *name = [[alertView textFieldAtIndex:0] text];
+            [self AddAccount:name];
         }
     }
 }
