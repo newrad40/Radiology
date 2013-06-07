@@ -85,6 +85,9 @@
  
 }
 
+- (IBAction)menuTrigger:(id)sender {
+    [self CustomizeScreen:sender];
+}
 
 
 - (IBAction)CustomizeScreen:(id)sender {
@@ -146,9 +149,12 @@
     [self.mousepad.layer setBorderWidth:4.0];
     [self.left_click_label.layer setBorderWidth:4.0];
     [self.right_click_label.layer setBorderWidth:4.0];
-    [self.mousepad.layer setBorderColor: [UIColor yellowColor].CGColor];
-    [self.left_click_label.layer setBorderColor: [UIColor yellowColor].CGColor];
-    [self.right_click_label.layer setBorderColor: [UIColor yellowColor].CGColor];
+    
+    UIColor *borderColor = [UIColor colorWithRed:82.0f/255.0f green:148.0f/255.0f blue:199.0f/255.0f alpha:1];
+    [self.mousepad.layer setBorderColor: borderColor.CGColor];
+    [self.left_click_label.layer setBorderColor: borderColor.CGColor];
+    [self.right_click_label.layer setBorderColor: borderColor.CGColor];
+     
     self.counter = 0;
     [self.two_finger_right setNumberOfTouchesRequired:2];
     [self.left_hold setMinimumPressDuration:0];
@@ -166,6 +172,23 @@
     self.time_last_pad_click = 0;
     self.needs_to_mouseup_on_endpan = false;
     [self.middle_click setNumberOfTouchesRequired:3];
+    
+    self.defaultBackgroundPath = @"texture1.jpg";
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.defaultBackgroundPath]];
+    self.scroller_active_label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:self.defaultBackgroundPath]];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"scroll-wheel1.jpg"] drawInRect:self.scroll_area_label.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.scroll_area_label.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    self.popout_view.layer.cornerRadius = 10;
+    self.popout_view.layer.masksToBounds = YES;
+    [self.popout_view.layer setBorderColor: borderColor.CGColor];
+    [self.popout_view.layer setBorderWidth:5.0f];
 }
 
 - (void)didReceiveMemoryWarning
@@ -236,6 +259,9 @@
     [self AddAccount:nil];
     
     [self setMiddle_click:nil];
+    [self setScroll_area_label:nil];
+    [self setScroller_active_label:nil];
+    [self setPopout_menu_mask:nil];
     [super viewDidUnload];
 }
 
@@ -527,7 +553,7 @@
                                                                    target:self
                                                                  selector:@selector(tick:)
                                                                  userInfo:nil
-                                                                  repeats:YES];
+                                                             repeats:YES];
     } else if ([sender state] == UIGestureRecognizerStateEnded) {
         [self.sliding_button setCenter:CGPointMake(self.sliding_button.center.x, self.original_slider_center)];
         [self.const_scroll_timer invalidate];
@@ -794,11 +820,14 @@
 - (IBAction)popout_show:(id)sender {
     if ([[sender titleLabel].text isEqualToString:@">"]) {
         [sender setTitle:@"<" forState:UIControlStateNormal];
+        [self mask:self.popout_menu_mask];
         [self.view bringSubviewToFront:self.popout_view];
+        [self.view bringSubviewToFront:self.menu_release];
         self.popout_view.hidden = false;
     } else {
         [sender setTitle:@">" forState:UIControlStateNormal];
         self.popout_view.hidden = true;
+        [self unmask:self.popout_menu_mask];
     }
 }
 
@@ -866,6 +895,9 @@
     [self popout_show:self.menu_release];
 }
 
+- (IBAction)on_tap_popout_mask:(id)sender {
+    [self popout_show:self.menu_release];
+}
 
 
 

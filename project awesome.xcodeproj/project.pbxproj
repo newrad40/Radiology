@@ -40,6 +40,8 @@
 		783502DA173CC99300C2FB51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783502B2173CC99200C2FB51 /* Foundation.framework */; };
 		783502E2173CC99300C2FB51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 783502E0173CC99300C2FB51 /* InfoPlist.strings */; };
 		783502E5173CC99300C2FB51 /* project_awesomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 783502E4173CC99300C2FB51 /* project_awesomeTests.m */; };
+		788F48F117618E2400FA1B84 /* texture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 788F48F017618E2400FA1B84 /* texture1.jpg */; };
+		788F48F31761A5FB00FA1B84 /* scroll-wheel1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 788F48F21761A5FB00FA1B84 /* scroll-wheel1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		783502E1173CC99300C2FB51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		783502E3173CC99300C2FB51 /* project_awesomeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = project_awesomeTests.h; sourceTree = "<group>"; };
 		783502E4173CC99300C2FB51 /* project_awesomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = project_awesomeTests.m; sourceTree = "<group>"; };
+		788F48F017618E2400FA1B84 /* texture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = texture1.jpg; sourceTree = "<group>"; };
+		788F48F21761A5FB00FA1B84 /* scroll-wheel1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "scroll-wheel1.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		33B94A9B1759FC11001A52B9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				788F48F21761A5FB00FA1B84 /* scroll-wheel1.jpg */,
+				788F48F017618E2400FA1B84 /* texture1.jpg */,
 				33B94A9C1759FC11001A52B9 /* button.png */,
 				33B94A9D1759FC11001A52B9 /* Default.png */,
 				33B94A9E1759FC11001A52B9 /* grassflower.jpg */,
@@ -315,6 +321,8 @@
 				33B94AAD1759FC11001A52B9 /* star.png in Resources */,
 				33B94AAE1759FC11001A52B9 /* water.jpg in Resources */,
 				33B94AAF1759FC11001A52B9 /* white_square.png in Resources */,
+				788F48F117618E2400FA1B84 /* texture1.jpg in Resources */,
+				788F48F31761A5FB00FA1B84 /* scroll-wheel1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

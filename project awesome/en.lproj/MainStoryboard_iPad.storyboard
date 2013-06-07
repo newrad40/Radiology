@@ -14,11 +14,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" id="ZE2-hn-w8f">
-                                <rect key="frame" x="63" y="29" width="913" height="147"/>
+                                <rect key="frame" x="59" y="14" width="704" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SYG-Kj-mbo">
-                                        <rect key="frame" x="8" y="8" width="136" height="132"/>
+                                        <rect key="frame" x="16" y="20" width="136" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="CT / MRI">
@@ -33,7 +33,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rMh-Rn-slK">
-                                        <rect key="frame" x="176" y="8" width="137" height="132"/>
+                                        <rect key="frame" x="184" y="20" width="137" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Ultrasound">
@@ -48,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7aQ-fl-fsC">
-                                        <rect key="frame" x="351" y="8" width="137" height="132"/>
+                                        <rect key="frame" x="359" y="20" width="137" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="X-Ray">
@@ -63,7 +63,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m4k-hN-hbm">
-                                        <rect key="frame" x="539" y="8" width="137" height="132"/>
+                                        <rect key="frame" x="547" y="20" width="137" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Set IP">
@@ -77,31 +77,19 @@
                                             <action selector="set_ip_button:" destination="2" eventType="touchUpInside" id="sUp-M8-9kE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Mn-Z5-JFN">
-                                        <rect key="frame" x="740" y="8" width="137" height="132"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Help">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="eQW-Dw-DL7">
-                                <rect key="frame" x="901" y="399" width="112" height="263"/>
+                                <rect key="frame" x="896" y="374" width="117" height="354"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="pi4-8k-bwU">
-                                        <rect key="frame" x="-42" y="116" width="199" height="23"/>
+                                        <rect key="frame" x="-152" y="145" width="364" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oRh-Xc-Vth">
-                                        <rect key="frame" x="23" y="112" width="67" height="31"/>
+                                        <rect key="frame" x="0.0" y="137" width="101" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -120,7 +108,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mrz-Fx-2x8">
-                                <rect key="frame" x="32" y="296" width="522" height="432"/>
+                                <rect key="frame" x="3" y="313" width="522" height="432"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -136,7 +124,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOi-0V-Nrn">
-                                <rect key="frame" x="29" y="670" width="271" height="58"/>
+                                <rect key="frame" x="3" y="687" width="259" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -147,7 +135,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5yz-W4-zZp">
-                                <rect key="frame" x="299" y="670" width="255" height="58"/>
+                                <rect key="frame" x="259" y="687" width="266" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -200,10 +188,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Z">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" title="Z"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -240,11 +225,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="z7e-vB-jZb">
-                                <rect key="frame" x="224" y="46" width="796" height="119"/>
+                                <rect key="frame" x="240" y="-5" width="796" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wdA-6m-hai">
-                                        <rect key="frame" x="20" y="11" width="48" height="96"/>
+                                        <rect key="frame" x="20" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="1">
@@ -259,7 +244,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zES-YZ-m95">
-                                        <rect key="frame" x="95" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="95" y="11" width="50" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="2">
@@ -274,7 +259,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YZ7-GB-EqS">
-                                        <rect key="frame" x="173" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="172" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="3">
@@ -289,7 +274,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EqC-8N-HNM">
-                                        <rect key="frame" x="251" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="249" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="4">
@@ -304,7 +289,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="duR-TQ-S5H">
-                                        <rect key="frame" x="330" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="325" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="5">
@@ -319,7 +304,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j9z-0d-tgO">
-                                        <rect key="frame" x="411" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="402" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="6">
@@ -334,7 +319,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lsZ-Ij-dfK">
-                                        <rect key="frame" x="491" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="480" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="7">
@@ -349,7 +334,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2ci-3q-m3a">
-                                        <rect key="frame" x="570" y="10" width="48" height="96"/>
+                                        <rect key="frame" x="558" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="8">
@@ -364,7 +349,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dog-eW-Xa9">
-                                        <rect key="frame" x="642" y="11" width="48" height="96"/>
+                                        <rect key="frame" x="635" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="9">
@@ -379,7 +364,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XaB-nK-vVh">
-                                        <rect key="frame" x="712" y="11" width="48" height="96"/>
+                                        <rect key="frame" x="712" y="11" width="48" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="10">
@@ -421,19 +406,26 @@
                                 </state>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" id="T3v-Sb-c2w">
-                                <rect key="frame" x="567" y="381" width="311" height="347"/>
+                                <rect key="frame" x="541" y="371" width="337" height="357"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ROC-B2-hXR">
-                                        <rect key="frame" x="32" y="9" width="247" height="318"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="337" height="357"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="npS-cc-yBJ" appends="YES" id="d6c-rb-QCI"/>
                                         </connections>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b3O-F8-FVT">
+                                        <rect key="frame" x="133" y="0.0" width="69" height="357"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -468,7 +460,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="cq5-jH-B3C">
-                                <rect key="frame" x="555" y="456" width="458" height="152"/>
+                                <rect key="frame" x="562" y="353" width="458" height="152"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="10P-64-l5G">
@@ -748,7 +740,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="KXP-ip-rdh">
-                                <rect key="frame" x="240" y="161" width="758" height="114"/>
+                                <rect key="frame" x="239" y="163" width="758" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x6f-UA-q4g">
@@ -856,21 +848,8 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.53418681569343063" green="0.65108919143676758" blue="0.65108919143676758" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" id="k5Z-px-1gW">
-                                <rect key="frame" x="0.0" y="-7" width="1024" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Radiology Remote" id="e2O-sq-uwU">
-                                        <barButtonItem key="leftBarButtonItem" title="Custom Settings" id="5ee-FB-Epb">
-                                            <connections>
-                                                <action selector="CustomizeScreen:" destination="2" id="vA2-zQ-iGN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EUr-XS-fZn">
                                 <rect key="frame" x="9" y="234" width="69" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -901,8 +880,34 @@
                                     <action selector="CreateAccount:" destination="2" eventType="touchUpInside" id="WO2-3s-TyE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A21-Ue-TE9">
+                                <rect key="frame" x="0.0" y="37" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuTrigger:" destination="2" eventType="touchUpInside" id="R3e-3N-Lhg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yRs-z4-MW8">
+                                <rect key="frame" x="9" y="8" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Tko-bW-6Qk" appends="YES" id="Yy6-5Z-BlL"/>
+                                </connections>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.039082429846938771" green="0.037678100279703503" blue="0.035879845647328268" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95294123888015747" green="0.83921575546264648" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
@@ -914,7 +919,6 @@
                         <outlet property="L" destination="ga5-2v-Nay" id="h99-SP-v8f"/>
                         <outlet property="R" destination="wjV-V4-3F2" id="NQ9-ud-u5i"/>
                         <outlet property="btnCreateAccount" destination="zpl-GN-T0E" id="hdE-Py-ImQ"/>
-                        <outlet property="btnCustomize" destination="5ee-FB-Epb" id="6RY-So-Wpa"/>
                         <outlet property="btnLogIn" destination="EUr-XS-fZn" id="NVL-C1-gbN"/>
                         <outlet property="cine_slider" destination="2BY-xu-mRj" id="dli-HB-iEm"/>
                         <outlet property="cine_view" destination="34L-ir-1sP" id="vrN-rf-gmm"/>
@@ -934,10 +938,13 @@
                         <outlet property="mousepad" destination="Mrz-Fx-2x8" id="RaJ-Bd-bvV"/>
                         <outlet property="on_z_pan" destination="w5E-ja-OTj" id="j8M-JU-ebz"/>
                         <outlet property="overlay" destination="NTH-E8-xzR" id="NXL-wm-xsT"/>
+                        <outlet property="popout_menu_mask" destination="yRs-z4-MW8" id="aW6-ZD-gzZ"/>
                         <outlet property="popout_view" destination="ZE2-hn-w8f" id="A7a-Ir-OVC"/>
                         <outlet property="right_click_gest" destination="AvD-qB-hfH" id="deN-8L-UhZ"/>
                         <outlet property="right_click_label" destination="5yz-W4-zZp" id="il5-wv-FS4"/>
+                        <outlet property="scroll_area_label" destination="b3O-F8-FVT" id="q9v-k4-AGf"/>
                         <outlet property="scroll_view" destination="T3v-Sb-c2w" id="RpI-Za-Lhz"/>
+                        <outlet property="scroller_active_label" destination="ROC-B2-hXR" id="kN5-kN-Gwq"/>
                         <outlet property="slider" destination="pi4-8k-bwU" id="rJq-p6-uHl"/>
                         <outlet property="sliding_button" destination="oRh-Xc-Vth" id="9GE-4t-gp1"/>
                         <outlet property="sliding_scroll_view" destination="eQW-Dw-DL7" id="iJ3-jH-XUI"/>
@@ -1054,6 +1061,12 @@
                         <outlet property="delegate" destination="2" id="t9K-bz-xzv"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="Tko-bW-6Qk">
+                    <connections>
+                        <action selector="on_tap_popout_mask:" destination="2" id="7oc-Ru-iP0"/>
+                        <outlet property="delegate" destination="2" id="nx7-MP-A4j"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
@@ -1066,52 +1079,7 @@
                 <relationship kind="action" name="CustomizeScreen:"/>
                 <relationship kind="action" name="LogIn:"/>
                 <relationship kind="action" name="LoginToProfile:" candidateClass="NSString"/>
-                <relationship kind="action" name="cine_slider_change:"/>
-                <relationship kind="action" name="end_cine_play:"/>
                 <relationship kind="action" name="handleScroll:"/>
-                <relationship kind="action" name="left_click:"/>
-                <relationship kind="action" name="left_hold:"/>
-                <relationship kind="action" name="on_10:"/>
-                <relationship kind="action" name="on_6:"/>
-                <relationship kind="action" name="on_7:"/>
-                <relationship kind="action" name="on_8:"/>
-                <relationship kind="action" name="on_9:"/>
-                <relationship kind="action" name="on_angle:"/>
-                <relationship kind="action" name="on_annotate:"/>
-                <relationship kind="action" name="on_b:"/>
-                <relationship kind="action" name="on_cin:"/>
-                <relationship kind="action" name="on_deselect:"/>
-                <relationship kind="action" name="on_dist:"/>
-                <relationship kind="action" name="on_dynamic_level:"/>
-                <relationship kind="action" name="on_level_pan:"/>
-                <relationship kind="action" name="on_middle_click:"/>
-                <relationship kind="action" name="on_next_series:"/>
-                <relationship kind="action" name="on_pan:"/>
-                <relationship kind="action" name="on_r:"/>
-                <relationship kind="action" name="on_reset:"/>
-                <relationship kind="action" name="on_roi:"/>
-                <relationship kind="action" name="on_screen_cine:"/>
-                <relationship kind="action" name="on_select:"/>
-                <relationship kind="action" name="on_slide_button:"/>
-                <relationship kind="action" name="on_smat:"/>
-                <relationship kind="action" name="on_two_finger_pan_overlay:"/>
-                <relationship kind="action" name="on_w1:"/>
-                <relationship kind="action" name="on_w2:"/>
-                <relationship kind="action" name="on_w3:"/>
-                <relationship kind="action" name="on_w4:"/>
-                <relationship kind="action" name="on_w5:"/>
-                <relationship kind="action" name="on_z_once:"/>
-                <relationship kind="action" name="on_z_pan:"/>
-                <relationship kind="action" name="on_z_tap_twice:"/>
-                <relationship kind="action" name="popout_show:"/>
-                <relationship kind="action" name="right_click:"/>
-                <relationship kind="action" name="set_ip_button:"/>
-                <relationship kind="action" name="show_ct_screen:"/>
-                <relationship kind="action" name="show_ultrasound:"/>
-                <relationship kind="action" name="show_xray_screen:"/>
-                <relationship kind="action" name="start_cine_play:"/>
-                <relationship kind="action" name="swipe_on_mousepad1:"/>
-                <relationship kind="action" name="swipe_on_mousepad2:"/>
                 <relationship kind="outlet" name="A" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="B" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="D" candidateClass="UIButton"/>
@@ -1139,10 +1107,14 @@
                 <relationship kind="outlet" name="mousepad" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="on_z_pan" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="outlet" name="overlay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="popout_menu_mask" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="popout_trigger_button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="popout_view" candidateClass="UIView"/>
                 <relationship kind="outlet" name="right_click_gest" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="right_click_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scroll_area_label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scroll_view" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scroller_active_label" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="sliding_button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="sliding_scroll_view" candidateClass="UIView"/>

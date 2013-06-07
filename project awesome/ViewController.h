@@ -92,4 +92,10 @@
 @property bool needs_to_mouseup_on_endpan;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *middle_click;
 
+@property (weak, nonatomic) IBOutlet UILabel *scroller_active_label;
+
+@property NSString *defaultBackgroundPath;
+@property (weak, nonatomic) IBOutlet UILabel *scroll_area_label;
+@property (weak, nonatomic) IBOutlet UILabel *popout_menu_mask;
+
 @end
