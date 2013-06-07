@@ -300,6 +300,8 @@
     
     self.scroll_area_label.backgroundColor = [UIColor colorWithPatternImage:image];
     
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
     self.popout_view.layer.cornerRadius = 10;
     self.popout_view.layer.masksToBounds = YES;
     [self.popout_view.layer setBorderColor: borderColor.CGColor];
